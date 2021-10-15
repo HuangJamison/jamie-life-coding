@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    
+    <script type="application/ld+json">
+
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "DNS - 網域名稱系統，買網域惹!",
+  
+  "image": "https://jamie-life-coding.site/images/dirty-hand.jpeg",
+  
+  "datePublished": "2021-08-22T19:35:01+08:00",
+  "dateModified": "2021-08-22T19:35:01+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Jamie Huang",
+    
+    "image": "https://jamie-life-coding.site/images/person.jpg"
+    
+  },
+  "mainEntityOfPage": { 
+    "@type": "WebPage",
+    "@id": "https:\/\/jamie-life-coding.site\/2021\/08\/dns-setting\/" 
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Life coding, record life.",
+    
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://jamie-life-coding.site/images/person.jpg"
+    }
+    
+  },
+  "description": "以為自己很熟悉 DNS，但設定還是弄得亂糟糟，滿是瘡口!\n",
+  "keywords": ["DNS, domain name system, 網域名稱系統"]
+}
+
+</script>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.87.0 with theme Tranquilpeak 0.5.0-BETA">
+<meta name="author" content="Jamie Huang">
+<meta name="keywords" content="DNS, domain name system, 網域名稱系統">
+<meta name="description" content="紀錄 DNS 與買網域設定的雷點與歷程，網域名稱系統，GoDaddy，買網域，網站設定 record how to buy domain and share how to do the setting.">
+
+
+<meta property="og:description" content="紀錄 DNS 與買網域設定的雷點與歷程，網域名稱系統，GoDaddy，買網域，網站設定 record how to buy domain and share how to do the setting.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DNS - 網域名稱系統，買網域惹!">
+<meta name="twitter:title" content="DNS - 網域名稱系統，買網域惹!">
+<meta property="og:url" content="https://jamie-life-coding.site/2021/08/dns-setting/">
+<meta property="twitter:url" content="https://jamie-life-coding.site/2021/08/dns-setting/">
+<meta property="og:site_name" content="Life coding, record life.">
+<meta property="og:description" content="紀錄 DNS 與買網域設定的雷點與歷程，網域名稱系統，GoDaddy，買網域，網站設定 record how to buy domain and share how to do the setting.">
+<meta name="twitter:description" content="紀錄 DNS 與買網域設定的雷點與歷程，網域名稱系統，GoDaddy，買網域，網站設定 record how to buy domain and share how to do the setting.">
+<meta property="og:locale" content="zh-tw">
+
+  
+    <meta property="article:published_time" content="2021-08-22T19:35:01">
+  
+  
+    <meta property="article:modified_time" content="2021-08-22T19:35:01">
+  
+  
+  
+    
+      <meta property="article:section" content="hugo">
+    
+  
+  
+    
+      <meta property="article:tag" content="DNS">
+    
+  
+
+
+<meta name="twitter:card" content="summary">
+
+
+
+
+
+
+
+  <meta property="og:image" content="https://jamie-life-coding.site/images/person.jpg">
+  <meta property="twitter:image" content="https://jamie-life-coding.site/images/person.jpg">
+
+
+
+
+  <meta property="og:image" content="https://jamie-life-coding.site/images/dirty-hand.jpeg">
+  <meta property="twitter:image" content="https://jamie-life-coding.site/images/dirty-hand.jpeg">
+
+
+  <meta property="og:image" content="https://jamie-life-coding.site/images/dirty-hand.jpeg">
+  <meta property="twitter:image" content="https://jamie-life-coding.site/images/dirty-hand.jpeg">
+
+
+<meta content="DNS, domain name system, 網域名稱系統" name="keywords">
+<meta content="非本科轉職學習紀錄，紀錄生活與技術|程式|英文|工作效率，record my daily life and share about frontend and backend skills. Use hugo tool to build blog. - 紀錄 DNS 與買網域設定的雷點與歷程，網域名稱系統，GoDaddy，買網域，網站設定 record how to buy domain and share how to do the setting." property="og:description">
+
+    <title>DNS - 網域名稱系統，買網域惹!</title>
+
+    <link rel="icon" href="https://jamie-life-coding.site/images/logo.jpg">
+    
+
+    
+
+    <link rel="canonical" href="https://jamie-life-coding.site/2021/08/dns-setting/">
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha512-H9jrZiiopUdsLpg94A333EfumgUBpO9MdbxStdeITo+KEIMaNfHNvwyjjDJb+ERPaRS6DpyRlKbvPUasNItRyw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    
+    
+    <link rel="stylesheet" href="https://jamie-life-coding.site/css/style-x4v5aep1xln8tw4u8b4utrzzm45rcnnq6emr4myqn5eka2yri56y1t7q.min.css" />
+    
+    
+      
+        <link rel="stylesheet"  href="https://jamie-life-coding.site/css/mystyle.css">
+      
+    
+
+    
+      
+    
+    
+    <style>
+      iframe[src*=ads-iframe]{display:none!important;}
+      div[id*=disqus][style*=margin]{display:none!important;}
+    </style>
+      
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="4">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="https://jamie-life-coding.site/" aria-label="去首頁">Life coding, record life.</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="https://jamie-life-coding.site/#about" aria-label="打開鏈接: /#about">
+    
+    
+    
+      
+        <img class="header-picture" src="https://jamie-life-coding.site/images/person.jpg" alt="作者的圖片" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="4">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="https://jamie-life-coding.site/#about" aria-label="閱讀有關作者的更多信息">
+          <img class="sidebar-profile-picture" src="https://jamie-life-coding.site/images/person.jpg" alt="作者的圖片" />
+        </a>
+        <h4 class="sidebar-profile-name">Jamie Huang</h4>
+        
+          <h5 class="sidebar-profile-bio">Learning by doing, not just saying.</h5>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://jamie-life-coding.site/" title="Home">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-home" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">首頁</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://jamie-life-coding.site/categories" title="Categories">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-bookmark" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">分類</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://jamie-life-coding.site/tags" title="Tags">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-tags" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">標籤</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://jamie-life-coding.site/archives" title="Archives">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-archive" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">所有文章</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://jamie-life-coding.site/page/say-english" title="英文大聲說團">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-users" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">英文大聲說團</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://jamie-life-coding.site/#about" title="About">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-question" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">關於</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/HuangJamison" target="_blank" rel="noopener" title="GitHub">
+    
+      <i class="sidebar-button-icon fab fa-lg fa-github" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://jamie-huang.medium.com" target="_blank" rel="noopener" title="Medium">
+    
+      <i class="sidebar-button-icon fab fa-lg fa-medium" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">Medium</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://www.linkedin.com/in/jamie-huang-689a4210a/" target="_blank" rel="noopener" title="Linkedin">
+    
+      <i class="sidebar-button-icon fab fa-lg fa-linkedin" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">Linkedin</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+
+    </ul>
+  </div>
+</nav>
+
+      
+  <div class="post-header-cover
+              text-left
+              post-header-cover--partial"
+       style="background-image:url('/images/dirty-hand.jpeg')"
+       data-behavior="4">
+    
+  </div>
+
+
+      <div id="main" data-behavior="4"
+        class="hasCover
+               hasCoverMetaOut
+               hasCoverCaption">
+        <article class="post">
+          
+            <span class="post-header-cover-caption caption">dirty-hand photo by jesse orrico</span>
+          
+          
+            <div class="post-header main-content-wrap text-left">
+  
+    <h1 class="post-title">
+      DNS - 網域名稱系統，買網域惹!
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time datetime="2021-08-22T19:35:01&#43;08:00">
+        
+  八月 22, 2021
+
+      </time>
+    
+    
+  
+  
+    <span>分類</span>
+    
+      <a class="category-link" href="https://jamie-life-coding.site/categories/hugo">hugo</a>
+    
+  
+
+  </div>
+
+</div>
+          
+          <div class="post-content markdown">
+            <div class="main-content-wrap">
+              <p>以為自己很熟悉 DNS，但設定還是弄得亂糟糟，滿是瘡口!</p>
+<h1 id="本文大綱">本文大綱</h1>
+<ul>
+<li><a href="#%E6%9C%AC%E6%96%87%E5%A4%A7%E7%B6%B1">本文大綱</a></li>
+<li><a href="#dns---domain-name-system">DNS - domain name system</a></li>
+<li><a href="#firebase-custom-domain-setting">firebase custom domain setting</a></li>
+<li><a href="#%E5%AD%B8%E7%BF%92%E9%87%8D%E9%BB%9E">學習重點</a></li>
+<li><a href="#%E5%8F%83%E8%80%83%E9%80%A3%E7%B5%90">參考連結</a></li>
+</ul>
+<h1 id="dns---domain-name-system">DNS - domain name system</h1>
+<p>DNS，又稱網域名稱系統，將人們覺得有意義的名稱轉換成機器可讀懂的 IP 位址 (118.96.168.1)。
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/HHC7JPhBPBQ" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+<div class="alert info ">
+  <p>看到台大地大台科大，還不跪下來，讓我收下你的膝蓋</p>
+</div></p>
+<p>讓我為客官說一個故事，小明小美要約會有一天相約在老地方吃飯，因地點不明確，有了以下的留言</p>
+<ul>
+<li>小明： 我們約老地方吃飯，東經 121.5 度，北緯 23.5 度</li>
+<li>小美： 你跟鬼說話嗎？ 幾度幾度我怎知道在哪？ 我要生氣囉！</li>
+<li>小明： 對不起啦！ 台北中山區忠孝北路 520 號 3 F ，fall in love 餐酒館</li>
+<li>小明： 不要生氣了，我對你的愛是 <code>愛你無法度</code></li>
+<li>小美： (已讀)</li>
+</ul>
+<p>因此在網路的世界中，上面的 fall in love 餐酒館就是<code>網域名稱</code>， 東經 121.5 度，北緯 23.5 度 跟 台北中山區忠孝北路 520 號 3 F 就是 <code>IP 位址</code>，對於人們來說， fall in love 餐酒館是比較好溝通且容易記得的</p>
+<p>機器在解析域名時，會由右邊至左邊，以 <code>jamie-life-coding.site</code> 網域來說，會先去解析 <code>.site</code> 伺服器，一層一層往上找。</p>
+<ul>
+<li>CNAME: 網站別名，通常對應為有意義文字，例如  <code>jamie-life-coding.site</code></li>
+<li>A: 對應到 IP address</li>
+</ul>
+<h1 id="firebase-custom-domain-setting">firebase custom domain setting</h1>
+<p>因為我們是在 firebase 使用託管的服務，所以 domain name 為 <code>.web.app</code> 結尾，然而我們想要客製化屬於自己專屬域名，需要以下步驟，以下以圖片記錄。</p>
+<ol>
+<li>
+<p>花 $ 或是尋找免費的域名服務
+我自己本身是用 <a href="https://tw.godaddy.com/">GoDaddy</a>，花了 35 元一年，也是人生中第一次購買這類產品，蠻新鮮的。
+<img src="https://jamie-life-coding.site/images/buy-domain.png" alt="buy-domain"></p>
+</li>
+<li>
+<p>買完後，firebase 左側欄點擊 <code>Hosting</code>，並點擊 <code>新增自訂網域</code>，會出現這個畫面，填入你剛買的域名
+<img src="https://jamie-life-coding.site/images/firebase-setting.png" alt="firebase-setting"></p>
+</li>
+<li>
+<p>會產生出一組 TXT，類似驗證碼，驗證這個服務與主機的連結，可參考<a href="https://tw.godaddy.com/help/add-a-txt-record-19232">說明</a>，主機填入你剛剛買的域名(jamie-life-coding.site)，TXT value 填入 firebase 產生的驗證碼，TTL 用來定義DNS 記錄的後續變更生效前的時間。<!-- raw HTML omitted --></p>
+</li>
+<li>
+<p>填入後，回到 firebase 頁面，此時，他會給你 IP address</p>
+</li>
+<li>
+<p>複製這個 IP 也就是 DNS 的 A 給你購買的 DNS 託管服務商，填入到 A 那列</p>
+</li>
+<li>
+<p>如果你只有一層你可以只填一層 CNAME，名稱 www ，值 hugo-firebase-blog.web.app，就可以了
+兩層的話，就是在網址前有個子域 <code>blog</code>，所以 <code>blog.jamie-life-coding.site</code> 也可以通！
+<img src="https://jamie-life-coding.site/images/godaddy.png" alt="godaddy"></p>
+</li>
+<li>
+<p>睡一覺，因為 SSL 認證等等機制，所以會晚一點，這也印證了當你解決不了時，不妨睡一下海闊天空</p>
+</li>
+</ol>
+<h1 id="學習重點">學習重點</h1>
+<ul>
+<li>自己摸了一下 firebase depoly 後如何設定 custom domain</li>
+<li>瞭解 DNS 運作機制</li>
+<li>買了人生第一個域名，算是人生的里程碑吧！</li>
+</ul>
+<blockquote>
+<p>你想徹徹底底了解一遍，先把手弄髒吧！</p>
+</blockquote>
+<h1 id="參考連結">參考連結</h1>
+<ul>
+<li><a href="https://aws.amazon.com/tw/route53/what-is-dns/">aws dns</a></li>
+<li><a href="https://blog.genesu.me/2020/09/hugo-site-deploy/">IT 邦 Gene</a></li>
+<li><a href="https://tw.godaddy.com/help/add-a-txt-record-19232">GoDaddy</a></li>
+<li><a href="https://medium.com/%E5%BE%8C%E7%AB%AF%E6%96%B0%E6%89%8B%E6%9D%91/%E5%9F%9F%E5%90%8D%E7%B3%BB%E7%B5%B1-dns-101-7c9fc6a1b8e6">域名系統（DNS）101—網址的小旅行</a></li>
+</ul>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+    $(document).ready(function() {
+        setInterval(() => {
+            $.each($('#disqus_thread iframe'), function (arr, element) {
+                
+                if (!$(element).attr('src')) {
+                    $(element).hide();
+                }
+            });
+        }, 5000);
+    });
+
+</script>
+              
+
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">標籤</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="https://jamie-life-coding.site/tags/dns/">DNS</a>
+
+                  </div>
+                
+              
+            
+            <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://jamie-life-coding.site/2021/09/hugo-from-beginning-to-done/" data-tooltip="Hugo 從 0 到 1" aria-label="下一篇: Hugo 從 0 到 1">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://jamie-life-coding.site/2021/08/medium-to-hugo/" data-tooltip="離開 Medium 擁抱 Hugo" aria-label="上一篇: 離開 Medium 擁抱 Hugo">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="分享這個帖子">
+            <i class="fa fa-share-alt" aria-hidden="true"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://jamie-life-coding.site/2021/08/dns-setting/" title="分享到 %s Facebook" aria-label="分享到 %s Facebook">
+              <i class="fab fa-facebook-square" aria-hidden="true"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://jamie-life-coding.site/2021/08/dns-setting/" title="分享到 %s Twitter" aria-label="分享到 %s Twitter">
+              <i class="fab fa-twitter" aria-hidden="true"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://jamie-life-coding.site/2021/08/dns-setting/" title="分享到 %s Google&#43;" aria-label="分享到 %s Google&#43;">
+              <i class="fab fa-google-plus" aria-hidden="true"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread" aria-label="發表評論">
+            <i class="far fa-comment"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#" aria-label="回到頂部">
+        
+          <i class="fa fa-list" aria-hidden="true"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+            
+  
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+    <script type="text/javascript">
+      var disqus_config = function() {
+        this.language = 'en';
+        this.page.url = 'https:\/\/jamie-life-coding.site\/2021\/08\/dns-setting\/';
+        
+          this.page.identifier = '\/2021\/08\/dns-setting\/'
+        
+      };
+      (function() {
+        
+        
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+          document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+          return;
+        }
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        var disqus_shortname = 'jamie-life-coding';
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+    </script>
+  
+
+
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span id="busuanzi_container_site_uv">
+    總瀏覽 <span id="busuanzi_value_site_uv"></span> 次
+  </span>
+  <br/>
+  <span class="copyrights">
+    &copy; 2021 Jamie Huang. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+        <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://jamie-life-coding.site/2021/09/hugo-from-beginning-to-done/" data-tooltip="Hugo 從 0 到 1" aria-label="下一篇: Hugo 從 0 到 1">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://jamie-life-coding.site/2021/08/medium-to-hugo/" data-tooltip="離開 Medium 擁抱 Hugo" aria-label="上一篇: 離開 Medium 擁抱 Hugo">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="分享這個帖子">
+            <i class="fa fa-share-alt" aria-hidden="true"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://jamie-life-coding.site/2021/08/dns-setting/" title="分享到 %s Facebook" aria-label="分享到 %s Facebook">
+              <i class="fab fa-facebook-square" aria-hidden="true"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://jamie-life-coding.site/2021/08/dns-setting/" title="分享到 %s Twitter" aria-label="分享到 %s Twitter">
+              <i class="fab fa-twitter" aria-hidden="true"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://jamie-life-coding.site/2021/08/dns-setting/" title="分享到 %s Google&#43;" aria-label="分享到 %s Google&#43;">
+              <i class="fab fa-google-plus" aria-hidden="true"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread" aria-label="發表評論">
+            <i class="far fa-comment"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#" aria-label="回到頂部">
+        
+          <i class="fa fa-list" aria-hidden="true"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+      </div>
+      
+<div id="share-options-bar" class="share-options-bar" data-behavior="4">
+  <i id="btn-close-shareoptions" class="fa fa-times"></i>
+  <ul class="share-options">
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fjamie-life-coding.site%2F2021%2F08%2Fdns-setting%2F" aria-label="分享到 %s Facebook">
+          <i class="fab fa-facebook-square" aria-hidden="true"></i><span>分享到 Facebook</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fjamie-life-coding.site%2F2021%2F08%2Fdns-setting%2F" aria-label="分享到 %s Twitter">
+          <i class="fab fa-twitter" aria-hidden="true"></i><span>分享到 Twitter</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Fjamie-life-coding.site%2F2021%2F08%2Fdns-setting%2F" aria-label="分享到 %s Google&#43;">
+          <i class="fab fa-google-plus" aria-hidden="true"></i><span>分享到 Google&#43;</span>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-times"></i>
+    </div>
+    
+      <img id="about-card-picture" src="https://jamie-life-coding.site/images/person.jpg" alt="作者的圖片" />
+    
+    <h4 id="about-card-name">Jamie Huang</h4>
+    
+      <div id="about-card-bio">Learning by doing, not just saying.</div>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        Web Developer
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker-alt"></i>
+        <br/>
+        Taiwan, Keelung
+      </div>
+    
+  </div>
+</div>
+
+    
+
+    
+  
+    
+      <div id="cover" style="background-image:url('https://jamie-life-coding.site/images/keyboard.jpeg');"></div>
+    
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PEJ729HV0Z"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-PEJ729HV0Z');
+</script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/highlight.min.js" integrity="sha512-z+/WWfyD5tccCukM4VvONpEtLmbAm5LDu7eKiyMQJ9m7OfPEDL7gENyDRL3Yfe8XAuGsS2fS4xSMnl6d30kqGQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+<script src="https://jamie-life-coding.site/js/script-8lglxdix2nqhalxxm2bujhkcc8cctdrd5o5axonwhfzx2zqrer5facyn8.min.js"></script>
+
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-gE8KAQyFIzV1C9+GZ8TKJHZS2s+n7EjNtC+IMRn1l5+WYJTHOODUM6JSjZhFhqXmc7bG8Av6XXpckA4tYhflnw==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/apache.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-EWROca+bote+7Oaaar1F6y74iZj1r1F9rm/ly7o+/FwJopbBaWtsFDmaKoZDd3QiGU2pGacBirHJNivmGLYrow==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/go.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-GDVzAn0wpx1yVtQsRWmFc6PhJiLBPdUic+h4GWgljBh904O3JU10fk9EKNpVyIoPqkFn54rgL2QBG4BmUTMpiQ==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/http.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-UgZlma8NzkrDb/NWgmLIcTrH7i/CSnLLDRFqCSNF5NGPpjKmzyM25qcoXGOup8+cDakKyaiTDd7N4dyH4YT+IA==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/less.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-lot9koe73sfXIrUvIPM/UEhuMciN56RPyBdOyZgfO53P2lkWyyXN7J+njcxIIBRV+nVDQeiWtiXg+bLAJZDTfg==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/nginx.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-Zd3e7XxHP00TD0Imr0PIfeM0fl0v95kMWuhyAS3Wn1UTSXTkz0OhtRgBAr4JlmADRgiXr4x7lpeUdqaGN8xIog==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/puppet.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-qtqDO052iXMSP+5d/aE/jMtL9vIIGvONgTJziC2K/ZIB1yEGa55WVxGE9/08rSQ62EoDifS9SWVGZ7ihSLhzMA==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/scss.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-1NmkjnEDnwwwcu28KoQF8vs3oaPFokQHbmbtwGhFfeDsQZtVFI8zW2aE9O8yMYdpdyKV/5blE4pSWw4Z/Sv97w==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/stylus.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-B2wSfruPjr8EJL6IIzQr1eAuDwrsfIfccNf/LCEdxELCgC/S/ZMt/Uvk80aD79m7IqOqW+Sw8nbkvha20yZpzg==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/swift.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-28oDiQZGKUVN6wQ7PSLPNipOcmkCALXKwOi7bnkyFf8QiMZQxG9EQoy/iiNx6Zxj2cG2SbVa4dXKigQhu7GiFw==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/yaml.min.js"></script>
+  
+
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+    
+  </body>
+</html>
+

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>hugo on Jamie-life-coding</title>
+    <link>https://jamie-life-coding.site/tags/hugo/</link>
+    <description>Recent content in hugo on Jamie-life-coding</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 22 Aug 2021 19:35:01 +0800</lastBuildDate><atom:link href="https://jamie-life-coding.site/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Medium to Hugo</title>
+      <link>https://jamie-life-coding.site/2021/08/medium-to-hugo/</link>
+      <pubDate>Sun, 22 Aug 2021 19:35:01 +0800</pubDate>
+      
+      <guid>https://jamie-life-coding.site/2021/08/medium-to-hugo/</guid>
+      <description>&lt;p&gt;再見 Medium，你很棒，但我需要更多彈性，紀錄更多自己的技術債與學習文章！&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

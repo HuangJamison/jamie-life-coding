@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories on Life coding, record life.</title>
+    <link>https://jamie-life-coding.site/categories/</link>
+    <description>Recent content in Categories on Life coding, record life.</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 22 Sep 2021 01:00:01 +0800</lastBuildDate><atom:link href="https://jamie-life-coding.site/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>react</title>
+      <link>https://jamie-life-coding.site/categories/react/</link>
+      <pubDate>Wed, 22 Sep 2021 01:00:01 +0800</pubDate>
+      
+      <guid>https://jamie-life-coding.site/categories/react/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>database</title>
+      <link>https://jamie-life-coding.site/categories/database/</link>
+      <pubDate>Sun, 12 Sep 2021 23:35:01 +0800</pubDate>
+      
+      <guid>https://jamie-life-coding.site/categories/database/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>hugo</title>
+      <link>https://jamie-life-coding.site/categories/hugo/</link>
+      <pubDate>Mon, 06 Sep 2021 01:02:01 +0800</pubDate>
+      
+      <guid>https://jamie-life-coding.site/categories/hugo/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

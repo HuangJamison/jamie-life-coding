@@ -1,0 +1,1088 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    
+    <script type="application/ld+json">
+
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "正規化 or 反正規化，優缺點一次說明",
+  
+  "image": "https://jamie-life-coding.site/images/database.jpeg",
+  
+  "datePublished": "2021-09-07T01:05:01+08:00",
+  "dateModified": "2021-09-07T01:05:01+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Jamie Huang",
+    
+    "image": "https://jamie-life-coding.site/images/person.jpg"
+    
+  },
+  "mainEntityOfPage": { 
+    "@type": "WebPage",
+    "@id": "https:\/\/jamie-life-coding.site\/2021\/09\/database-normalization-pros-cons\/" 
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Life coding, record life.",
+    
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://jamie-life-coding.site/images/person.jpg"
+    }
+    
+  },
+  "description": "沒有最佳解，你必須通盤了解，才能找到最適解！\n",
+  "keywords": ["database-design, normalize, denormalized"]
+}
+
+</script>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.87.0 with theme Tranquilpeak 0.5.0-BETA">
+<meta name="author" content="Jamie Huang">
+<meta name="keywords" content="database-design, normalize, denormalized">
+<meta name="description" content="normalization or denormalized">
+
+
+<meta property="og:description" content="normalization or denormalized">
+<meta property="og:type" content="article">
+<meta property="og:title" content="正規化 or 反正規化，優缺點一次說明">
+<meta name="twitter:title" content="正規化 or 反正規化，優缺點一次說明">
+<meta property="og:url" content="https://jamie-life-coding.site/2021/09/database-normalization-pros-cons/">
+<meta property="twitter:url" content="https://jamie-life-coding.site/2021/09/database-normalization-pros-cons/">
+<meta property="og:site_name" content="Life coding, record life.">
+<meta property="og:description" content="normalization or denormalized">
+<meta name="twitter:description" content="normalization or denormalized">
+<meta property="og:locale" content="zh-tw">
+
+  
+    <meta property="article:published_time" content="2021-09-07T01:05:01">
+  
+  
+    <meta property="article:modified_time" content="2021-09-07T01:05:01">
+  
+  
+  
+    
+      <meta property="article:section" content="database">
+    
+  
+  
+    
+      <meta property="article:tag" content="database-design">
+    
+  
+
+
+<meta name="twitter:card" content="summary">
+
+
+
+
+
+
+
+  <meta property="og:image" content="https://jamie-life-coding.site/images/person.jpg">
+  <meta property="twitter:image" content="https://jamie-life-coding.site/images/person.jpg">
+
+
+
+
+  <meta property="og:image" content="https://jamie-life-coding.site/images/database.jpeg">
+  <meta property="twitter:image" content="https://jamie-life-coding.site/images/database.jpeg">
+
+
+  <meta property="og:image" content="https://jamie-life-coding.site/images/database.jpeg">
+  <meta property="twitter:image" content="https://jamie-life-coding.site/images/database.jpeg">
+
+
+<meta content="database-design, normalize, denormalized" name="keywords">
+<meta content="非本科轉職學習紀錄，紀錄生活與技術|程式|英文|工作效率，record my daily life and share about frontend and backend skills. Use hugo tool to build blog. - normalization or denormalized" property="og:description">
+
+    <title>正規化 or 反正規化，優缺點一次說明</title>
+
+    <link rel="icon" href="https://jamie-life-coding.site/images/logo.jpg">
+    
+
+    
+
+    <link rel="canonical" href="https://jamie-life-coding.site/2021/09/database-normalization-pros-cons/">
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha512-H9jrZiiopUdsLpg94A333EfumgUBpO9MdbxStdeITo+KEIMaNfHNvwyjjDJb+ERPaRS6DpyRlKbvPUasNItRyw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    
+    
+    <link rel="stylesheet" href="https://jamie-life-coding.site/css/style-x4v5aep1xln8tw4u8b4utrzzm45rcnnq6emr4myqn5eka2yri56y1t7q.min.css" />
+    
+    
+      
+        <link rel="stylesheet"  href="https://jamie-life-coding.site/css/mystyle.css">
+      
+    
+
+    
+      
+    
+    
+    <style>
+      iframe[src*=ads-iframe]{display:none!important;}
+      div[id*=disqus][style*=margin]{display:none!important;}
+    </style>
+      
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="4">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="https://jamie-life-coding.site/" aria-label="去首頁">Life coding, record life.</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="https://jamie-life-coding.site/#about" aria-label="打開鏈接: /#about">
+    
+    
+    
+      
+        <img class="header-picture" src="https://jamie-life-coding.site/images/person.jpg" alt="作者的圖片" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="4">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="https://jamie-life-coding.site/#about" aria-label="閱讀有關作者的更多信息">
+          <img class="sidebar-profile-picture" src="https://jamie-life-coding.site/images/person.jpg" alt="作者的圖片" />
+        </a>
+        <h4 class="sidebar-profile-name">Jamie Huang</h4>
+        
+          <h5 class="sidebar-profile-bio">Learning by doing, not just saying.</h5>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://jamie-life-coding.site/" title="Home">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-home" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">首頁</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://jamie-life-coding.site/categories" title="Categories">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-bookmark" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">分類</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://jamie-life-coding.site/tags" title="Tags">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-tags" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">標籤</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://jamie-life-coding.site/archives" title="Archives">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-archive" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">所有文章</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://jamie-life-coding.site/page/say-english" title="英文大聲說團">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-users" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">英文大聲說團</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://jamie-life-coding.site/#about" title="About">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-question" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">關於</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/HuangJamison" target="_blank" rel="noopener" title="GitHub">
+    
+      <i class="sidebar-button-icon fab fa-lg fa-github" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://jamie-huang.medium.com" target="_blank" rel="noopener" title="Medium">
+    
+      <i class="sidebar-button-icon fab fa-lg fa-medium" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">Medium</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://www.linkedin.com/in/jamie-huang-689a4210a/" target="_blank" rel="noopener" title="Linkedin">
+    
+      <i class="sidebar-button-icon fab fa-lg fa-linkedin" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">Linkedin</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+
+    </ul>
+  </div>
+</nav>
+
+      
+  <div class="post-header-cover
+              text-left
+              post-header-cover--partial"
+       style="background-image:url('/images/database.jpeg')"
+       data-behavior="4">
+    
+  </div>
+
+
+      <div id="main" data-behavior="4"
+        class="hasCover
+               hasCoverMetaOut
+               hasCoverCaption">
+        <article class="post">
+          
+            <span class="post-header-cover-caption caption">you have to decide until knowing everything photo by Caspar Camille Rubin</span>
+          
+          
+            <div class="post-header main-content-wrap text-left">
+  
+    <h1 class="post-title">
+      正規化 or 反正規化，優缺點一次說明
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time datetime="2021-09-07T01:05:01&#43;08:00">
+        
+  九月 7, 2021
+
+      </time>
+    
+    
+  
+  
+    <span>分類</span>
+    
+      <a class="category-link" href="https://jamie-life-coding.site/categories/database">database</a>
+    
+  
+
+  </div>
+
+</div>
+          
+          <div class="post-content markdown">
+            <div class="main-content-wrap">
+              <p>沒有最佳解，你必須通盤了解，才能找到最適解！</p>
+<h1 id="本文大綱">本文大綱</h1>
+<ul>
+<li><a href="#%E6%9C%AC%E6%96%87%E5%A4%A7%E7%B6%B1">本文大綱</a></li>
+<li><a href="#%E6%AD%A3%E8%A6%8F%E5%8C%96">正規化</a></li>
+<li><a href="#%E6%AD%A3%E8%A6%8F%E5%8C%96%E7%B4%B0%E7%AF%80">正規化細節</a></li>
+<li><a href="#%E4%BB%80%E9%BA%BC%E6%99%82%E5%80%99%E5%8F%8D%E6%AD%A3%E8%A6%8F%E5%8C%96">什麼時候反正規化</a></li>
+<li><a href="#%E5%AD%B8%E7%BF%92%E9%87%8D%E9%BB%9E">學習重點</a></li>
+<li><a href="#%E5%8F%83%E8%80%83%E9%80%A3%E7%B5%90">參考連結</a></li>
+</ul>
+<h1 id="正規化">正規化</h1>
+<p>最近在寫程式時，常面臨到 database join 來 join 去，導致於執行速度過慢，開發時，又要理解很多 table 之間的關聯，正規化真的好嗎？</p>
+<blockquote>
+<p>當你不知道選擇哪個架構，往往是你不清楚你想要什麼？</p>
+</blockquote>
+<p>正規化要解決的事情是降低資料的重複性，你不會在一個 table 裡面看到 <code>訂單資料</code> 、 <code>使用者資料</code>，這樣這張表就太多 column，一個視窗也拉不完，因此會將 <code>訂單資料</code> 成一個獨立的表， <code>使用者資料</code> 成另一個獨立表，可避免資料重複。<!-- raw HTML omitted --></p>
+<p>正規化的優點：
+<div class="alert success ">
+  <p><ol>
+<li>降低資料的重複性</li>
+<li>去除相依性，利用外部索引鍵，產生關聯</li>
+<li>update 資料較快(因 update 部分資料，例如：只想更新使用者地址，那就更新使用者資料，不必更新訂單的每個資料)</li>
+</ol>
+</p>
+</div></p>
+<p><!-- raw HTML omitted -->正規化的缺點：<!-- raw HTML omitted -->
+<div class="alert warning ">
+  <p><ol>
+<li>耦合性高，牽一髮動全身(約束性強)</li>
+<li>查詢較慢(如 join table 到一定數量，爆炸慢)</li>
+<li>DB I/O 繁忙，因為 join 很多表</li>
+<li>儲存成本高</li>
+</ol>
+</p>
+</div></p>
+<h1 id="正規化細節">正規化細節</h1>
+<ol>
+<li>
+<p>第一正規化：去除重複性，像是購物車訂單，不會包含此筆訂單下的所有商品，不會存成&hellip;
+<div class="alert danger ">
+  <p><p>錯誤示範 cart_orders</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">id</th>
+<th style="text-align:center">user</th>
+<th style="text-align:center">product</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">jamie</td>
+<td style="text-align:center">麥片、水果</td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:center">win</td>
+<td style="text-align:center">水果、滑鼠</td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:center">leo</td>
+<td style="text-align:center">滑鼠、麥片</td>
+</tr>
+</tbody>
+</table>
+</p>
+</div>
+<!-- raw HTML omitted -->
+應該會存成下面這樣，才會是模範生&hellip;
+<!-- raw HTML omitted -->
+<div class="alert success ">
+  <p><p>正確示範 cart_orders</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">id</th>
+<th style="text-align:center">user</th>
+<th style="text-align:center">product</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">jamie</td>
+<td style="text-align:center">麥片</td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:center">jamie</td>
+<td style="text-align:center">水果</td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:center">win</td>
+<td style="text-align:center">水果</td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td style="text-align:center">win</td>
+<td style="text-align:center">滑鼠</td>
+</tr>
+<tr>
+<td style="text-align:center">5</td>
+<td style="text-align:center">leo</td>
+<td style="text-align:center">滑鼠</td>
+</tr>
+<tr>
+<td style="text-align:center">6</td>
+<td style="text-align:center">leo</td>
+<td style="text-align:center">麥片</td>
+</tr>
+</tbody>
+</table>
+</p>
+</div></p>
+<!-- raw HTML omitted -->
+</li>
+<li>
+<p>第二正規化：去除相依性，使用外部索引鍵，讓這些資料表產生關聯，而不是一張 table 塞入所有資訊<br>
+不要以為剛剛那樣就很完美，還有一些地方可以優化，仔細看下面示範，把 <code>user</code> 與 <code>product</code> 放在同一張表內
+<div class="alert danger ">
+  <p><p>錯誤示範 cart_orders</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">id</th>
+<th style="text-align:center">user</th>
+<th style="text-align:center">product</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">jamie</td>
+<td style="text-align:center">麥片</td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:center">jamie</td>
+<td style="text-align:center">水果</td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:center">win</td>
+<td style="text-align:center">水果</td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td style="text-align:center">win</td>
+<td style="text-align:center">滑鼠</td>
+</tr>
+<tr>
+<td style="text-align:center">5</td>
+<td style="text-align:center">leo</td>
+<td style="text-align:center">滑鼠</td>
+</tr>
+<tr>
+<td style="text-align:center">6</td>
+<td style="text-align:center">leo</td>
+<td style="text-align:center">麥片</td>
+</tr>
+</tbody>
+</table>
+</p>
+</div>
+<!-- raw HTML omitted -->
+應該要分成兩張表 <code>users</code> 跟 <code>cart_orders</code>
+<!-- raw HTML omitted -->
+<div class="alert success ">
+  <p><p>正確示範 cart_orders</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">id</th>
+<th style="text-align:center">user_id</th>
+<th style="text-align:center">product</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">麥片</td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">水果</td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">水果</td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">滑鼠</td>
+</tr>
+<tr>
+<td style="text-align:center">5</td>
+<td style="text-align:center">3</td>
+<td style="text-align:center">滑鼠</td>
+</tr>
+<tr>
+<td style="text-align:center">6</td>
+<td style="text-align:center">3</td>
+<td style="text-align:center">麥片</td>
+</tr>
+</tbody>
+</table>
+<p>正確示範 users</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">id</th>
+<th style="text-align:center">name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">jamie</td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:center">win</td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:center">leo</td>
+</tr>
+</tbody>
+</table>
+</p>
+</div></p>
+</li>
+<li>
+<p>第三正規化：刪除不依賴索引鍵的欄位，例如說：訂單數量 <code>count</code> 與單價 <code>unit_price</code> 已經存在表單，又多了每一筆訂單的 amount，就是不必要的<br>
+因此，剛剛的 schema 還可以優化，例如說以下錯誤示範
+<div class="alert danger ">
+  <p><p>錯誤示範 cart_orders</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">id</th>
+<th style="text-align:center">user_id</th>
+<th style="text-align:center">product</th>
+<th style="text-align:center">count</th>
+<th style="text-align:center">unit_price</th>
+<th style="text-align:center">amount</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">麥片</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">4</td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">水果</td>
+<td style="text-align:center">3</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">3</td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">水果</td>
+<td style="text-align:center">4</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">4</td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">滑鼠</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">10</td>
+<td style="text-align:center">10</td>
+</tr>
+<tr>
+<td style="text-align:center">5</td>
+<td style="text-align:center">3</td>
+<td style="text-align:center">滑鼠</td>
+<td style="text-align:center">7</td>
+<td style="text-align:center">10</td>
+<td style="text-align:center">70</td>
+</tr>
+<tr>
+<td style="text-align:center">6</td>
+<td style="text-align:center">3</td>
+<td style="text-align:center">麥片</td>
+<td style="text-align:center">10</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">20</td>
+</tr>
+</tbody>
+</table>
+</p>
+</div>
+<!-- raw HTML omitted -->
+應該要把相依性 amount 拿掉
+<!-- raw HTML omitted -->
+<div class="alert success ">
+  <p><p>正確示範 cart_orders</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">id</th>
+<th style="text-align:center">user_id</th>
+<th style="text-align:center">product</th>
+<th style="text-align:center">count</th>
+<th style="text-align:center">unit_price</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">麥片</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">2</td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">水果</td>
+<td style="text-align:center">3</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">水果</td>
+<td style="text-align:center">4</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">滑鼠</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">10</td>
+</tr>
+<tr>
+<td style="text-align:center">5</td>
+<td style="text-align:center">3</td>
+<td style="text-align:center">滑鼠</td>
+<td style="text-align:center">7</td>
+<td style="text-align:center">10</td>
+</tr>
+<tr>
+<td style="text-align:center">6</td>
+<td style="text-align:center">3</td>
+<td style="text-align:center">麥片</td>
+<td style="text-align:center">10</td>
+<td style="text-align:center">2</td>
+</tr>
+</tbody>
+</table>
+</p>
+</div></p>
+</li>
+</ol>
+<h1 id="什麼時候反正規化">什麼時候反正規化</h1>
+<p>教科學經常告訴學生最好的參照方式，但實際運用時必須考慮天時、地利、人和，簡單說，就是必須考量到實際運用情境。<!-- raw HTML omitted -->
+當你遇到商業邏輯極為複雜時，又使得資料庫正規化到極致，很有可能讓後續維護困難<br>
+以下幾種情境可以使用反正規化
+<div class="alert info ">
+  <p><ol>
+<li>耦合性高，牽一髮動全身(約束性強)</li>
+<li>經常要查詢，但不常更動的設計(因為常查詢如果反正規化可以少 join 一堆 table)</li>
+<li>資料不超過百萬</li>
+<li>不要求快速寫入</li>
+</ol>
+</p>
+</div></p>
+<h1 id="學習重點">學習重點</h1>
+<p>這一次要重整公司複雜的商業邏輯，因過去時空背景下，是將資料正規化到極致，導致於後續維護成本高，因此尋找有沒有更簡單的解法，<br>
+可以讓前人種樹，後人乘涼的解法，因此找到了<code>反正規化</code>，因此寫了兩者的比較，讓自己對 database schema 設計更了解，才能設計出更好的架構。</p>
+<blockquote>
+<p>可以簡單，何必複雜！</p>
+</blockquote>
+<h1 id="參考連結">參考連結</h1>
+<ul>
+<li><a href="https://kylinyu.win/table-normalize-or-denormalized/">資料庫到底要不要做正規化</a></li>
+<li><a href="https://mark-lin.com/posts/20160917/">正規與反正規化的戰爭</a></li>
+</ul>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+    $(document).ready(function() {
+        setInterval(() => {
+            $.each($('#disqus_thread iframe'), function (arr, element) {
+                
+                if (!$(element).attr('src')) {
+                    $(element).hide();
+                }
+            });
+        }, 5000);
+    });
+
+</script>
+              
+
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">標籤</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="https://jamie-life-coding.site/tags/database-design/">database-design</a>
+
+                  </div>
+                
+              
+            
+            <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://jamie-life-coding.site/2021/09/how-to-improve-database-query-1/" data-tooltip="如何優化資料庫 query，從 explain 開始吧 — 上半場 select_type" aria-label="下一篇: 如何優化資料庫 query，從 explain 開始吧 — 上半場 select_type">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://jamie-life-coding.site/2021/09/hugo-from-beginning-to-done/" data-tooltip="Hugo 從 0 到 1" aria-label="上一篇: Hugo 從 0 到 1">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="分享這個帖子">
+            <i class="fa fa-share-alt" aria-hidden="true"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://jamie-life-coding.site/2021/09/database-normalization-pros-cons/" title="分享到 %s Facebook" aria-label="分享到 %s Facebook">
+              <i class="fab fa-facebook-square" aria-hidden="true"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://jamie-life-coding.site/2021/09/database-normalization-pros-cons/" title="分享到 %s Twitter" aria-label="分享到 %s Twitter">
+              <i class="fab fa-twitter" aria-hidden="true"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://jamie-life-coding.site/2021/09/database-normalization-pros-cons/" title="分享到 %s Google&#43;" aria-label="分享到 %s Google&#43;">
+              <i class="fab fa-google-plus" aria-hidden="true"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread" aria-label="發表評論">
+            <i class="far fa-comment"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#" aria-label="回到頂部">
+        
+          <i class="fa fa-list" aria-hidden="true"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+            
+  
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+    <script type="text/javascript">
+      var disqus_config = function() {
+        this.language = 'en';
+        this.page.url = 'https:\/\/jamie-life-coding.site\/2021\/09\/database-normalization-pros-cons\/';
+        
+          this.page.identifier = '\/2021\/09\/database-normalization-pros-cons\/'
+        
+      };
+      (function() {
+        
+        
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+          document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+          return;
+        }
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        var disqus_shortname = 'jamie-life-coding';
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+    </script>
+  
+
+
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span id="busuanzi_container_site_uv">
+    總瀏覽 <span id="busuanzi_value_site_uv"></span> 次
+  </span>
+  <br/>
+  <span class="copyrights">
+    &copy; 2021 Jamie Huang. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+        <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://jamie-life-coding.site/2021/09/how-to-improve-database-query-1/" data-tooltip="如何優化資料庫 query，從 explain 開始吧 — 上半場 select_type" aria-label="下一篇: 如何優化資料庫 query，從 explain 開始吧 — 上半場 select_type">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://jamie-life-coding.site/2021/09/hugo-from-beginning-to-done/" data-tooltip="Hugo 從 0 到 1" aria-label="上一篇: Hugo 從 0 到 1">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="分享這個帖子">
+            <i class="fa fa-share-alt" aria-hidden="true"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://jamie-life-coding.site/2021/09/database-normalization-pros-cons/" title="分享到 %s Facebook" aria-label="分享到 %s Facebook">
+              <i class="fab fa-facebook-square" aria-hidden="true"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://jamie-life-coding.site/2021/09/database-normalization-pros-cons/" title="分享到 %s Twitter" aria-label="分享到 %s Twitter">
+              <i class="fab fa-twitter" aria-hidden="true"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://jamie-life-coding.site/2021/09/database-normalization-pros-cons/" title="分享到 %s Google&#43;" aria-label="分享到 %s Google&#43;">
+              <i class="fab fa-google-plus" aria-hidden="true"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread" aria-label="發表評論">
+            <i class="far fa-comment"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#" aria-label="回到頂部">
+        
+          <i class="fa fa-list" aria-hidden="true"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+      </div>
+      
+<div id="share-options-bar" class="share-options-bar" data-behavior="4">
+  <i id="btn-close-shareoptions" class="fa fa-times"></i>
+  <ul class="share-options">
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fjamie-life-coding.site%2F2021%2F09%2Fdatabase-normalization-pros-cons%2F" aria-label="分享到 %s Facebook">
+          <i class="fab fa-facebook-square" aria-hidden="true"></i><span>分享到 Facebook</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fjamie-life-coding.site%2F2021%2F09%2Fdatabase-normalization-pros-cons%2F" aria-label="分享到 %s Twitter">
+          <i class="fab fa-twitter" aria-hidden="true"></i><span>分享到 Twitter</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Fjamie-life-coding.site%2F2021%2F09%2Fdatabase-normalization-pros-cons%2F" aria-label="分享到 %s Google&#43;">
+          <i class="fab fa-google-plus" aria-hidden="true"></i><span>分享到 Google&#43;</span>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-times"></i>
+    </div>
+    
+      <img id="about-card-picture" src="https://jamie-life-coding.site/images/person.jpg" alt="作者的圖片" />
+    
+    <h4 id="about-card-name">Jamie Huang</h4>
+    
+      <div id="about-card-bio">Learning by doing, not just saying.</div>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        Web Developer
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker-alt"></i>
+        <br/>
+        Taiwan, Keelung
+      </div>
+    
+  </div>
+</div>
+
+    
+
+    
+  
+    
+      <div id="cover" style="background-image:url('https://jamie-life-coding.site/images/keyboard.jpeg');"></div>
+    
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PEJ729HV0Z"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-PEJ729HV0Z');
+</script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/highlight.min.js" integrity="sha512-z+/WWfyD5tccCukM4VvONpEtLmbAm5LDu7eKiyMQJ9m7OfPEDL7gENyDRL3Yfe8XAuGsS2fS4xSMnl6d30kqGQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+<script src="https://jamie-life-coding.site/js/script-8lglxdix2nqhalxxm2bujhkcc8cctdrd5o5axonwhfzx2zqrer5facyn8.min.js"></script>
+
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-gE8KAQyFIzV1C9+GZ8TKJHZS2s+n7EjNtC+IMRn1l5+WYJTHOODUM6JSjZhFhqXmc7bG8Av6XXpckA4tYhflnw==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/apache.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-EWROca+bote+7Oaaar1F6y74iZj1r1F9rm/ly7o+/FwJopbBaWtsFDmaKoZDd3QiGU2pGacBirHJNivmGLYrow==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/go.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-GDVzAn0wpx1yVtQsRWmFc6PhJiLBPdUic+h4GWgljBh904O3JU10fk9EKNpVyIoPqkFn54rgL2QBG4BmUTMpiQ==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/http.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-UgZlma8NzkrDb/NWgmLIcTrH7i/CSnLLDRFqCSNF5NGPpjKmzyM25qcoXGOup8+cDakKyaiTDd7N4dyH4YT+IA==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/less.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-lot9koe73sfXIrUvIPM/UEhuMciN56RPyBdOyZgfO53P2lkWyyXN7J+njcxIIBRV+nVDQeiWtiXg+bLAJZDTfg==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/nginx.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-Zd3e7XxHP00TD0Imr0PIfeM0fl0v95kMWuhyAS3Wn1UTSXTkz0OhtRgBAr4JlmADRgiXr4x7lpeUdqaGN8xIog==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/puppet.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-qtqDO052iXMSP+5d/aE/jMtL9vIIGvONgTJziC2K/ZIB1yEGa55WVxGE9/08rSQ62EoDifS9SWVGZ7ihSLhzMA==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/scss.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-1NmkjnEDnwwwcu28KoQF8vs3oaPFokQHbmbtwGhFfeDsQZtVFI8zW2aE9O8yMYdpdyKV/5blE4pSWw4Z/Sv97w==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/stylus.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-B2wSfruPjr8EJL6IIzQr1eAuDwrsfIfccNf/LCEdxELCgC/S/ZMt/Uvk80aD79m7IqOqW+Sw8nbkvha20yZpzg==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/swift.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-28oDiQZGKUVN6wQ7PSLPNipOcmkCALXKwOi7bnkyFf8QiMZQxG9EQoy/iiNx6Zxj2cG2SbVa4dXKigQhu7GiFw==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/yaml.min.js"></script>
+  
+
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+    
+  </body>
+</html>
+

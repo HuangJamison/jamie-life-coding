@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+
+
+<url>
+  <loc>https://jamie-life-coding.site/</loc>
+  <lastmod>2021-08-28T17:14:52+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://jamie-life-coding.site/categories/</loc>
+  <lastmod>2021-08-28T17:14:52+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://jamie-life-coding.site/tags/</loc>
+  <lastmod>2021-08-28T17:14:52+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://jamie-life-coding.site/archives/</loc>
+  <lastmod>2021-08-28T17:14:52+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://jamie-life-coding.site/2021/08/dns-setting/</loc>
+  <lastmod>2021-08-28T17:14:52+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://jamie-life-coding.site/categories/hugo/</loc>
+  <lastmod>2021-08-28T17:14:52+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://jamie-life-coding.site/2021/08/medium-to-hugo/</loc>
+  <lastmod>2021-08-28T17:14:52+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://jamie-life-coding.site/tags/dns/</loc>
+  <lastmod>2021-08-28T17:14:52+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jamie-life-coding.site/tags/%E5%BF%83%E6%83%85543/</loc>
+  <lastmod>2021-08-28T17:14:52+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+
+
+</urlset>

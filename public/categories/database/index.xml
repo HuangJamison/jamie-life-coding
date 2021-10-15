@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>database on Life coding, record life.</title>
+    <link>https://jamie-life-coding.site/categories/database/</link>
+    <description>Recent content in database on Life coding, record life.</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 12 Sep 2021 23:35:01 +0800</lastBuildDate><atom:link href="https://jamie-life-coding.site/categories/database/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>如何優化資料庫 query，從 explain 開始吧 — 上半場 select_type</title>
+      <link>https://jamie-life-coding.site/2021/09/how-to-improve-database-query-1/</link>
+      <pubDate>Sun, 12 Sep 2021 23:35:01 +0800</pubDate>
+      
+      <guid>https://jamie-life-coding.site/2021/09/how-to-improve-database-query-1/</guid>
+      <description>&lt;p&gt;越煩雜越要整理，每次用到，每次忘記XD&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>正規化 or 反正規化，優缺點一次說明</title>
+      <link>https://jamie-life-coding.site/2021/09/database-normalization-pros-cons/</link>
+      <pubDate>Tue, 07 Sep 2021 01:05:01 +0800</pubDate>
+      
+      <guid>https://jamie-life-coding.site/2021/09/database-normalization-pros-cons/</guid>
+      <description>&lt;p&gt;沒有最佳解，你必須通盤了解，才能找到最適解！&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

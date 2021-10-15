@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Life coding, record life.</title>
+    <link>https://jamie-life-coding.site/</link>
+    <description>Recent content on Life coding, record life.</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 22 Sep 2021 01:00:01 +0800</lastBuildDate><atom:link href="https://jamie-life-coding.site/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Lidemy 學習 Redux 第一章 — 基本概念</title>
+      <link>https://jamie-life-coding.site/2021/09/redux-lidemy-learning/</link>
+      <pubDate>Wed, 22 Sep 2021 01:00:01 +0800</pubDate>
+      
+      <guid>https://jamie-life-coding.site/2021/09/redux-lidemy-learning/</guid>
+      <description>&lt;p&gt;框架的出現是解救蒼生XD 站在前人的肩膀上做事情，就可以避免悲劇發生&amp;hellip;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>如何優化資料庫 query，從 explain 開始吧 — 上半場 select_type</title>
+      <link>https://jamie-life-coding.site/2021/09/how-to-improve-database-query-1/</link>
+      <pubDate>Sun, 12 Sep 2021 23:35:01 +0800</pubDate>
+      
+      <guid>https://jamie-life-coding.site/2021/09/how-to-improve-database-query-1/</guid>
+      <description>&lt;p&gt;越煩雜越要整理，每次用到，每次忘記XD&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>正規化 or 反正規化，優缺點一次說明</title>
+      <link>https://jamie-life-coding.site/2021/09/database-normalization-pros-cons/</link>
+      <pubDate>Tue, 07 Sep 2021 01:05:01 +0800</pubDate>
+      
+      <guid>https://jamie-life-coding.site/2021/09/database-normalization-pros-cons/</guid>
+      <description>&lt;p&gt;沒有最佳解，你必須通盤了解，才能找到最適解！&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Hugo 從 0 到 1</title>
+      <link>https://jamie-life-coding.site/2021/09/hugo-from-beginning-to-done/</link>
+      <pubDate>Mon, 06 Sep 2021 01:02:01 +0800</pubDate>
+      
+      <guid>https://jamie-life-coding.site/2021/09/hugo-from-beginning-to-done/</guid>
+      <description>&lt;p&gt;讓我們重&amp;quot;心&amp;quot;開始，華麗的開始，接踵而至的是不停撞破牆的設定，如果一次設定不好，怎麼沒試過設定第二次呢？&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>DNS - 網域名稱系統，買網域惹!</title>
+      <link>https://jamie-life-coding.site/2021/08/dns-setting/</link>
+      <pubDate>Sun, 22 Aug 2021 19:35:01 +0800</pubDate>
+      
+      <guid>https://jamie-life-coding.site/2021/08/dns-setting/</guid>
+      <description>&lt;p&gt;以為自己很熟悉 DNS，但設定還是弄得亂糟糟，滿是瘡口!&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>離開 Medium 擁抱 Hugo</title>
+      <link>https://jamie-life-coding.site/2021/08/medium-to-hugo/</link>
+      <pubDate>Sun, 22 Aug 2021 19:35:01 +0800</pubDate>
+      
+      <guid>https://jamie-life-coding.site/2021/08/medium-to-hugo/</guid>
+      <description>&lt;p&gt;再見 Medium，你很棒，但我需要更多彈性，紀錄更多自己的技術債與學習文章！&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>基隆英文口說團</title>
+      <link>https://jamie-life-coding.site/page/say-english/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://jamie-life-coding.site/page/say-english/</guid>
+      <description>後續補上   $(document).ready(function() { setInterval(() = { $.each($(&#39;#disqus_thread iframe&#39;), function (arr, element) { if (!$(element).attr(&#39;src&#39;)) { $(element).hide(); } }); }, 5000); });  </description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    
+    <script type="application/ld+json">
+
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Lidemy 學習 Redux 第一章 — 基本概念",
+  
+  "image": "https://jamie-life-coding.site/images/user-interface.jpeg",
+  
+  "datePublished": "2021-09-22T01:00:01+08:00",
+  "dateModified": "2021-09-22T01:00:01+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Jamie Huang",
+    
+    "image": "https://jamie-life-coding.site/images/person.jpg"
+    
+  },
+  "mainEntityOfPage": { 
+    "@type": "WebPage",
+    "@id": "https:\/\/jamie-life-coding.site\/2021\/09\/redux-lidemy-learning\/" 
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Life coding, record life.",
+    
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://jamie-life-coding.site/images/person.jpg"
+    }
+    
+  },
+  "description": "框架的出現是解救蒼生XD 站在前人的肩膀上做事情，就可以避免悲劇發生\u0026hellip;\n",
+  "keywords": ["redux, lidemy, react"]
+}
+
+</script>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.87.0 with theme Tranquilpeak 0.5.0-BETA">
+<meta name="author" content="Jamie Huang">
+<meta name="keywords" content="redux, lidemy, react">
+<meta name="description" content="lidemy learning, redux, react-redux, self-learning">
+
+
+<meta property="og:description" content="lidemy learning, redux, react-redux, self-learning">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Lidemy 學習 Redux 第一章 — 基本概念">
+<meta name="twitter:title" content="Lidemy 學習 Redux 第一章 — 基本概念">
+<meta property="og:url" content="https://jamie-life-coding.site/2021/09/redux-lidemy-learning/">
+<meta property="twitter:url" content="https://jamie-life-coding.site/2021/09/redux-lidemy-learning/">
+<meta property="og:site_name" content="Life coding, record life.">
+<meta property="og:description" content="lidemy learning, redux, react-redux, self-learning">
+<meta name="twitter:description" content="lidemy learning, redux, react-redux, self-learning">
+<meta property="og:locale" content="zh-tw">
+
+  
+    <meta property="article:published_time" content="2021-09-22T01:00:01">
+  
+  
+    <meta property="article:modified_time" content="2021-09-22T01:00:01">
+  
+  
+  
+    
+      <meta property="article:section" content="react">
+    
+  
+  
+    
+      <meta property="article:tag" content="self-learning">
+    
+      <meta property="article:tag" content="redux">
+    
+  
+
+
+<meta name="twitter:card" content="summary">
+
+
+
+
+
+
+
+  <meta property="og:image" content="https://jamie-life-coding.site/images/person.jpg">
+  <meta property="twitter:image" content="https://jamie-life-coding.site/images/person.jpg">
+
+
+
+
+  <meta property="og:image" content="https://jamie-life-coding.site/images/user-interface.jpeg">
+  <meta property="twitter:image" content="https://jamie-life-coding.site/images/user-interface.jpeg">
+
+
+  <meta property="og:image" content="https://jamie-life-coding.site/images/user-interface.jpeg">
+  <meta property="twitter:image" content="https://jamie-life-coding.site/images/user-interface.jpeg">
+
+
+<meta content="redux, lidemy, react" name="keywords">
+<meta content="非本科轉職學習紀錄，紀錄生活與技術|程式|英文|工作效率，record my daily life and share about frontend and backend skills. Use hugo tool to build blog. - lidemy learning, redux, react-redux, self-learning" property="og:description">
+
+    <title>Lidemy 學習 Redux 第一章 — 基本概念</title>
+
+    <link rel="icon" href="https://jamie-life-coding.site/images/logo.jpg">
+    
+
+    
+
+    <link rel="canonical" href="https://jamie-life-coding.site/2021/09/redux-lidemy-learning/">
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha512-H9jrZiiopUdsLpg94A333EfumgUBpO9MdbxStdeITo+KEIMaNfHNvwyjjDJb+ERPaRS6DpyRlKbvPUasNItRyw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    
+    
+    <link rel="stylesheet" href="https://jamie-life-coding.site/css/style-x4v5aep1xln8tw4u8b4utrzzm45rcnnq6emr4myqn5eka2yri56y1t7q.min.css" />
+    
+    
+      
+        <link rel="stylesheet"  href="https://jamie-life-coding.site/css/mystyle.css">
+      
+    
+
+    
+      
+    
+    
+    <style>
+      iframe[src*=ads-iframe]{display:none!important;}
+      div[id*=disqus][style*=margin]{display:none!important;}
+    </style>
+      
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="4">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="https://jamie-life-coding.site/" aria-label="去首頁">Life coding, record life.</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="https://jamie-life-coding.site/#about" aria-label="打開鏈接: /#about">
+    
+    
+    
+      
+        <img class="header-picture" src="https://jamie-life-coding.site/images/person.jpg" alt="作者的圖片" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="4">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="https://jamie-life-coding.site/#about" aria-label="閱讀有關作者的更多信息">
+          <img class="sidebar-profile-picture" src="https://jamie-life-coding.site/images/person.jpg" alt="作者的圖片" />
+        </a>
+        <h4 class="sidebar-profile-name">Jamie Huang</h4>
+        
+          <h5 class="sidebar-profile-bio">Learning by doing, not just saying.</h5>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://jamie-life-coding.site/" title="Home">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-home" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">首頁</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://jamie-life-coding.site/categories" title="Categories">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-bookmark" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">分類</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://jamie-life-coding.site/tags" title="Tags">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-tags" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">標籤</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://jamie-life-coding.site/archives" title="Archives">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-archive" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">所有文章</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://jamie-life-coding.site/page/say-english" title="英文大聲說團">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-users" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">英文大聲說團</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://jamie-life-coding.site/#about" title="About">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-question" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">關於</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/HuangJamison" target="_blank" rel="noopener" title="GitHub">
+    
+      <i class="sidebar-button-icon fab fa-lg fa-github" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://jamie-huang.medium.com" target="_blank" rel="noopener" title="Medium">
+    
+      <i class="sidebar-button-icon fab fa-lg fa-medium" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">Medium</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://www.linkedin.com/in/jamie-huang-689a4210a/" target="_blank" rel="noopener" title="Linkedin">
+    
+      <i class="sidebar-button-icon fab fa-lg fa-linkedin" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">Linkedin</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+
+    </ul>
+  </div>
+</nav>
+
+      
+  <div class="post-header-cover
+              text-left
+              post-header-cover--partial"
+       style="background-image:url('/images/user-interface.jpeg')"
+       data-behavior="4">
+    
+  </div>
+
+
+      <div id="main" data-behavior="4"
+        class="hasCover
+               hasCoverMetaOut
+               hasCoverCaption">
+        <article class="post">
+          
+            <span class="post-header-cover-caption caption">資料與畫面 photo by UX Indonesia</span>
+          
+          
+            <div class="post-header main-content-wrap text-left">
+  
+    <h1 class="post-title">
+      Lidemy 學習 Redux 第一章 — 基本概念
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time datetime="2021-09-22T01:00:01&#43;08:00">
+        
+  九月 22, 2021
+
+      </time>
+    
+    
+  
+  
+    <span>分類</span>
+    
+      <a class="category-link" href="https://jamie-life-coding.site/categories/react">react</a>
+    
+  
+
+  </div>
+
+</div>
+          
+          <div class="post-content markdown">
+            <div class="main-content-wrap">
+              <p>框架的出現是解救蒼生XD 站在前人的肩膀上做事情，就可以避免悲劇發生&hellip;</p>
+<h1 id="本文大綱">本文大綱</h1>
+<ul>
+<li><a href="#%E6%9C%AC%E6%96%87%E5%A4%A7%E7%B6%B1">本文大綱</a></li>
+<li><a href="#redux-%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5">Redux 基本概念</a>
+<ul>
+<li><a href="#redux-%E4%B8%89%E6%9C%AC%E6%9F%B1">Redux 三本柱</a></li>
+</ul>
+</li>
+<li><a href="#redux-%E7%AF%84%E4%BE%8B">Redux 範例</a></li>
+<li><a href="#%E5%AD%B8%E7%BF%92%E9%87%8D%E9%BB%9E">學習重點</a></li>
+<li><a href="#%E5%8F%83%E8%80%83%E9%80%A3%E7%B5%90">參考連結</a></li>
+</ul>
+<h1 id="redux-基本概念">Redux 基本概念</h1>
+<p>紀錄 Lidemy 學習 Redux 的課程，有興趣可以看 <a href="https://lidemy.com/courses/fe303-react-redux">Huli 的 Lidemy</a>，這邊純粹整理與紀錄學習心得。
+我使用過的前端 Jquery，從畫面上拿取資料，沒有 state 概念，在 script 寫邏輯，然後再把邏輯丟回畫面 render DOM。<br>
+React 則只需要管理 state，state 改變，畫面就會重新 render，畫面也會改變。</p>
+<p>過去我們學習 React 會利用 <code>useState</code> 去設定 state 初始值，並利用 <code>setState</code> 去改變狀態，因此沒有使用 redux 我們還是可以活得很好。
+Redux 要解決的問題是狀態管理，當專案越來越大、情境越來越複雜時，使用 React state 較難管理，也越來越多可以觸發的路徑，當出現問題時，會遇到一個大問題是，哪個 view 的 component 去改變 state 的，此時就需要 redux 統一狀態管理，減少 debug 與開發時間。
+<div class="alert info ">
+  <p>Redux 是一個統一狀態管理工具，react 與 redux 是分開的概念，沒有使用 redux，還是可以使用 react 去改變 state。</p>
+</div></p>
+<h2 id="redux-三本柱">Redux 三本柱</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"><a href="https://jamie-life-coding.site/images/redux-concept.png"> <img src="https://jamie-life-coding.site/images/redux-concept.png" alt="redux-concept"> </a></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><em>redux-concept resouce from <a href="https://redux.js.org/">https://redux.js.org/</a></em></td>
+</tr>
+</tbody>
+</table>
+<p>如果以這張圖來說，按下 Deposit 存錢，Dispatch 一個 Action 帶上 type &amp; payload，將 Action 進入 Store，藉由 Reducer 去改變 state，改變完 State，更新畫面。
+<div class="alert info ">
+  <p>整體流程： UI trigger -&gt; event handler dispatch action -&gt; Store -&gt; Reducer(將原 state 結合新 action payload) → response 新的 state → 寫回 UI</p>
+</div></p>
+<ul>
+<li>Store：state 的倉庫，將所有 state 放在 store 內做管理，以 js 的 object 方式儲存</li>
+<li>Reducer： Reducer 接收 Action，根據 action 的類型，將原來的 state 結合傳進來的 Action 對 state 進行改變</li>
+<li>Dispatch： 發動 action，會定義其 action.type &amp; payload(改變的資料)</li>
+</ul>
+<h1 id="redux-範例">Redux 範例</h1>
+<ol>
+<li>首先創建一個 Store object</li>
+<li>定義你想要的 Reducer function</li>
+<li>Dispatch action 皆經由 Reducer 改變 action
+
+
+  
+  
+  
+  
+  
+
+
+  
+    
+  
+  
+
+<figure class="codeblock codeblock--tabbed">
+  <figcaption>
+    
+      <span>app.js</span>
+    
+    <ul class="tabs">
+      
+        <li class="tab active">javascript</li>
+      
+    </ul>
+  </figcaption>
+  <div class="tabs-content">
+    
+      
+      <figure class="highlight language-javascript javascript" style="display: block;">
+        <table>
+          <tbody>
+            <tr>
+              <td class="gutter">
+                <pre><span>1</span><br><span>2</span><br><span>3</span><br><span>4</span><br><span>5</span><br><span>6</span><br><span>7</span><br><span>8</span><br><span>9</span><br><span>10</span><br><span>11</span><br><span>12</span><br><span>13</span><br><span>14</span><br><span>15</span><br><span>16</span><br><span>17</span><br><span>18</span><br><span>19</span><br><span>20</span><br><span>21</span><br><span>22</span><br><span>23</span><br><span>24</span><br><span>25</span><br><span>26</span><br><span>27</span><br><span>28</span><br><span>29</span><br><span>30</span><br><span>31</span><br><span>32</span><br><span>33</span><br><span>34</span><br><span>35</span><br><span>36</span><br></pre>
+              </td>
+              <td class="code">
+                <pre class="code-highlight language-javascript javascript"><code class="javascript">const { createStore } = require(&#34;redux&#34;);
+const initialState = {
+  value: 0,
+};
+
+function counterReducer(state = initialState, action) {
+  console.log(&#34;receive action: &#34;, action);
+  switch (action.type) {
+    case &#34;plus&#34;:
+      return {
+        value: state.value &#43; 1,
+      };
+    case &#34;minus&#34;:
+      return {
+        value: state.value - 1,
+      };
+    default:
+      return state;
+  }
+}
+
+const storeObject = createStore(counterReducer);
+console.log(&#34;store:&#34;, storeObject);
+console.log(&#34;first state:&#34;, storeObject.getState());
+
+storeObject.dispatch({
+  type: &#34;plus&#34;,
+});
+storeObject.dispatch({
+  type: &#34;plus&#34;,
+});
+console.log(&#34;second state plus :&#34;, storeObject.getState());
+storeObject.dispatch({
+  type: &#34;minus&#34;,
+});
+console.log(&#34;third state plus :&#34;, storeObject.getState());</code></pre>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </figure>
+    
+  </div>
+</figure>
+</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"><a href="https://jamie-life-coding.site/images/redux-example1.png"> <img src="https://jamie-life-coding.site/images/redux-example1.png" alt="redux-example"> </a></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><em>redux-example</em></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>接下來，可利用 subscribe 監聽 state 是否改變，當 state 改變後可以做一些事&hellip; 很像 hooks 的 useEffect</li>
+<li>加上 payload 概念，可以做到發 action 帶上 type &amp; payload，去改變 state</li>
+</ul>
+
+
+  
+  
+  
+  
+  
+
+
+  
+    
+  
+  
+
+<figure class="codeblock codeblock--tabbed">
+  <figcaption>
+    
+      <span>app.js</span>
+    
+    <ul class="tabs">
+      
+        <li class="tab active">javascript</li>
+      
+    </ul>
+  </figcaption>
+  <div class="tabs-content">
+    
+      
+      <figure class="highlight language-javascript javascript" style="display: block;">
+        <table>
+          <tbody>
+            <tr>
+              <td class="gutter">
+                <pre><span>1</span><br><span>2</span><br><span>3</span><br><span>4</span><br><span>5</span><br><span>6</span><br><span>7</span><br><span>8</span><br><span>9</span><br><span>10</span><br><span>11</span><br><span>12</span><br><span>13</span><br><span>14</span><br><span>15</span><br><span>16</span><br><span>17</span><br><span>18</span><br><span>19</span><br><span>20</span><br><span>21</span><br><span>22</span><br><span>23</span><br><span>24</span><br><span>25</span><br><span>26</span><br><span>27</span><br><span>28</span><br><span>29</span><br><span>30</span><br><span>31</span><br><span>32</span><br><span>33</span><br><span>34</span><br><span>35</span><br><span>36</span><br><span>37</span><br><span>38</span><br><span>39</span><br><span>40</span><br><span>41</span><br><span>42</span><br><span>43</span><br><span>44</span><br><span>45</span><br></pre>
+              </td>
+              <td class="code">
+                <pre class="code-highlight language-javascript javascript"><code class="javascript">const { createStore } = require(&#34;redux&#34;);
+const initialState = {
+  value: 0,
+};
+
+function counterReducer(state = initialState, action) {
+  console.log(&#34;receive action: &#34;, action);
+  switch (action.type) {
+    case &#34;plus&#34;:
+      return {
+        value: state.value &#43; action.payload.value,
+      };
+    case &#34;minus&#34;:
+      return {
+        value: state.value - action.payload.value,
+      };
+    default:
+      return state;
+  }
+}
+
+const storeObject = createStore(counterReducer);
+storeObject.subscribe(() =&gt; {
+  console.log(&#34;changed! now state is :&#34;, storeObject.getState());
+});
+console.log(&#34;first state:&#34;, storeObject.getState());
+
+storeObject.dispatch({
+  type: &#34;plus&#34;,
+  payload: {
+    value: 3,
+  },
+});
+storeObject.dispatch({
+  type: &#34;plus&#34;,
+  payload: {
+    value: 2,
+  },
+});
+storeObject.dispatch({
+  type: &#34;minus&#34;,
+  payload: {
+    value: 1,
+  },
+});</code></pre>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </figure>
+    
+  </div>
+</figure>
+
+<table>
+<thead>
+<tr>
+<th style="text-align:center"><a href="https://jamie-life-coding.site/images/redux-example2.png"> <img src="https://jamie-life-coding.site/images/redux-example2.png" alt="redux-example"> </a></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><em>redux-example2 payload &amp; subscribe</em></td>
+</tr>
+</tbody>
+</table>
+<h1 id="學習重點">學習重點</h1>
+<p>redux 是一個幫助前端框架集中管理狀態的方法，有了 redux，react 將可以讓改變資料變成單向的資料流，將任何觸發管道，變成只有一個管道 dispatch 去觸發，是一個集中管理 state 的概念。</p>
+<blockquote>
+<p>之前在公司碰到 redux 都覺得很複雜，dispatch, action, api 都覺得幹嘛繞一個圈去拿資料，到學習 redux 才真正了解，redux 要解決的問題是統一管理資料流</p>
+</blockquote>
+<h1 id="參考連結">參考連結</h1>
+<ul>
+<li><a href="https://lidemy.com/courses/fe303-react-redux">Lidemy Redux</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/101151851">Redux 基礎</a></li>
+<li><a href="https://redux.js.org/">Redux Doc</a></li>
+</ul>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+    $(document).ready(function() {
+        setInterval(() => {
+            $.each($('#disqus_thread iframe'), function (arr, element) {
+                
+                if (!$(element).attr('src')) {
+                    $(element).hide();
+                }
+            });
+        }, 5000);
+    });
+
+</script>
+              
+
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">標籤</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="https://jamie-life-coding.site/tags/self-learning/">self-learning</a>
+
+  <a class="tag tag--primary tag--small" href="https://jamie-life-coding.site/tags/redux/">redux</a>
+
+                  </div>
+                
+              
+            
+            <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://jamie-life-coding.site/2021/09/how-to-improve-database-query-1/" data-tooltip="如何優化資料庫 query，從 explain 開始吧 — 上半場 select_type" aria-label="上一篇: 如何優化資料庫 query，從 explain 開始吧 — 上半場 select_type">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="分享這個帖子">
+            <i class="fa fa-share-alt" aria-hidden="true"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://jamie-life-coding.site/2021/09/redux-lidemy-learning/" title="分享到 %s Facebook" aria-label="分享到 %s Facebook">
+              <i class="fab fa-facebook-square" aria-hidden="true"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://jamie-life-coding.site/2021/09/redux-lidemy-learning/" title="分享到 %s Twitter" aria-label="分享到 %s Twitter">
+              <i class="fab fa-twitter" aria-hidden="true"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://jamie-life-coding.site/2021/09/redux-lidemy-learning/" title="分享到 %s Google&#43;" aria-label="分享到 %s Google&#43;">
+              <i class="fab fa-google-plus" aria-hidden="true"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread" aria-label="發表評論">
+            <i class="far fa-comment"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#" aria-label="回到頂部">
+        
+          <i class="fa fa-list" aria-hidden="true"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+            
+  
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+    <script type="text/javascript">
+      var disqus_config = function() {
+        this.language = 'en';
+        this.page.url = 'https:\/\/jamie-life-coding.site\/2021\/09\/redux-lidemy-learning\/';
+        
+          this.page.identifier = '\/2021\/09\/redux-lidemy-learning\/'
+        
+      };
+      (function() {
+        
+        
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+          document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+          return;
+        }
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        var disqus_shortname = 'jamie-life-coding';
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+    </script>
+  
+
+
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span id="busuanzi_container_site_uv">
+    總瀏覽 <span id="busuanzi_value_site_uv"></span> 次
+  </span>
+  <br/>
+  <span class="copyrights">
+    &copy; 2021 Jamie Huang. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+        <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://jamie-life-coding.site/2021/09/how-to-improve-database-query-1/" data-tooltip="如何優化資料庫 query，從 explain 開始吧 — 上半場 select_type" aria-label="上一篇: 如何優化資料庫 query，從 explain 開始吧 — 上半場 select_type">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="分享這個帖子">
+            <i class="fa fa-share-alt" aria-hidden="true"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://jamie-life-coding.site/2021/09/redux-lidemy-learning/" title="分享到 %s Facebook" aria-label="分享到 %s Facebook">
+              <i class="fab fa-facebook-square" aria-hidden="true"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://jamie-life-coding.site/2021/09/redux-lidemy-learning/" title="分享到 %s Twitter" aria-label="分享到 %s Twitter">
+              <i class="fab fa-twitter" aria-hidden="true"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://jamie-life-coding.site/2021/09/redux-lidemy-learning/" title="分享到 %s Google&#43;" aria-label="分享到 %s Google&#43;">
+              <i class="fab fa-google-plus" aria-hidden="true"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread" aria-label="發表評論">
+            <i class="far fa-comment"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#" aria-label="回到頂部">
+        
+          <i class="fa fa-list" aria-hidden="true"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+      </div>
+      
+<div id="share-options-bar" class="share-options-bar" data-behavior="4">
+  <i id="btn-close-shareoptions" class="fa fa-times"></i>
+  <ul class="share-options">
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fjamie-life-coding.site%2F2021%2F09%2Fredux-lidemy-learning%2F" aria-label="分享到 %s Facebook">
+          <i class="fab fa-facebook-square" aria-hidden="true"></i><span>分享到 Facebook</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fjamie-life-coding.site%2F2021%2F09%2Fredux-lidemy-learning%2F" aria-label="分享到 %s Twitter">
+          <i class="fab fa-twitter" aria-hidden="true"></i><span>分享到 Twitter</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Fjamie-life-coding.site%2F2021%2F09%2Fredux-lidemy-learning%2F" aria-label="分享到 %s Google&#43;">
+          <i class="fab fa-google-plus" aria-hidden="true"></i><span>分享到 Google&#43;</span>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-times"></i>
+    </div>
+    
+      <img id="about-card-picture" src="https://jamie-life-coding.site/images/person.jpg" alt="作者的圖片" />
+    
+    <h4 id="about-card-name">Jamie Huang</h4>
+    
+      <div id="about-card-bio">Learning by doing, not just saying.</div>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        Web Developer
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker-alt"></i>
+        <br/>
+        Taiwan, Keelung
+      </div>
+    
+  </div>
+</div>
+
+    
+
+    
+  
+    
+      <div id="cover" style="background-image:url('https://jamie-life-coding.site/images/keyboard.jpeg');"></div>
+    
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PEJ729HV0Z"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-PEJ729HV0Z');
+</script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/highlight.min.js" integrity="sha512-z+/WWfyD5tccCukM4VvONpEtLmbAm5LDu7eKiyMQJ9m7OfPEDL7gENyDRL3Yfe8XAuGsS2fS4xSMnl6d30kqGQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+<script src="https://jamie-life-coding.site/js/script-8lglxdix2nqhalxxm2bujhkcc8cctdrd5o5axonwhfzx2zqrer5facyn8.min.js"></script>
+
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-gE8KAQyFIzV1C9+GZ8TKJHZS2s+n7EjNtC+IMRn1l5+WYJTHOODUM6JSjZhFhqXmc7bG8Av6XXpckA4tYhflnw==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/apache.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-EWROca+bote+7Oaaar1F6y74iZj1r1F9rm/ly7o+/FwJopbBaWtsFDmaKoZDd3QiGU2pGacBirHJNivmGLYrow==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/go.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-GDVzAn0wpx1yVtQsRWmFc6PhJiLBPdUic+h4GWgljBh904O3JU10fk9EKNpVyIoPqkFn54rgL2QBG4BmUTMpiQ==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/http.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-UgZlma8NzkrDb/NWgmLIcTrH7i/CSnLLDRFqCSNF5NGPpjKmzyM25qcoXGOup8+cDakKyaiTDd7N4dyH4YT+IA==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/less.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-lot9koe73sfXIrUvIPM/UEhuMciN56RPyBdOyZgfO53P2lkWyyXN7J+njcxIIBRV+nVDQeiWtiXg+bLAJZDTfg==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/nginx.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-Zd3e7XxHP00TD0Imr0PIfeM0fl0v95kMWuhyAS3Wn1UTSXTkz0OhtRgBAr4JlmADRgiXr4x7lpeUdqaGN8xIog==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/puppet.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-qtqDO052iXMSP+5d/aE/jMtL9vIIGvONgTJziC2K/ZIB1yEGa55WVxGE9/08rSQ62EoDifS9SWVGZ7ihSLhzMA==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/scss.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-1NmkjnEDnwwwcu28KoQF8vs3oaPFokQHbmbtwGhFfeDsQZtVFI8zW2aE9O8yMYdpdyKV/5blE4pSWw4Z/Sv97w==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/stylus.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-B2wSfruPjr8EJL6IIzQr1eAuDwrsfIfccNf/LCEdxELCgC/S/ZMt/Uvk80aD79m7IqOqW+Sw8nbkvha20yZpzg==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/swift.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-28oDiQZGKUVN6wQ7PSLPNipOcmkCALXKwOi7bnkyFf8QiMZQxG9EQoy/iiNx6Zxj2cG2SbVa4dXKigQhu7GiFw==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/yaml.min.js"></script>
+  
+
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+    
+  </body>
+</html>
+
