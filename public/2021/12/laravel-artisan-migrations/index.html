@@ -7,12 +7,12 @@
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "正規化 or 反正規化，優缺點一次說明",
+  "headline": "Laravel dev setting - Artisan \u0026 Composer \u0026 how to run laravel locally",
   
-  "image": "https://jamie-life-coding.site/images/database.jpeg",
+  "image": "https://jamie-life-coding.site/images/laravel.png",
   
-  "datePublished": "2021-09-07T01:05:01+08:00",
-  "dateModified": "2021-09-07T01:05:01+08:00",
+  "datePublished": "2021-12-13T00:15:01+08:00",
+  "dateModified": "2021-12-13T00:15:01+08:00",
   "author": {
     "@type": "Person",
     "name": "Jamie Huang",
@@ -22,7 +22,7 @@
   },
   "mainEntityOfPage": { 
     "@type": "WebPage",
-    "@id": "https:\/\/jamie-life-coding.site\/2021\/09\/database-normalization-pros-cons\/" 
+    "@id": "https:\/\/jamie-life-coding.site\/2021\/12\/laravel-artisan-migrations\/" 
   },
   "publisher": {
     "@type": "Organization",
@@ -34,8 +34,8 @@
     }
     
   },
-  "description": "沒有最佳解，你必須通盤了解，才能找到最適解！\n",
-  "keywords": ["database-design, normalize, denormalized"]
+  "description": "優美的框架？ Laravel 學習之路！\n",
+  "keywords": ["laravel, migrations, seeding, controller, php artisan"]
 }
 
 </script>
@@ -44,36 +44,38 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="generator" content="Hugo 0.87.0 with theme Tranquilpeak 0.5.0-BETA">
 <meta name="author" content="Jamie Huang">
-<meta name="keywords" content="database-design, normalize, denormalized">
-<meta name="description" content="normalization or denormalized">
+<meta name="keywords" content="laravel, migrations, seeding, controller, php artisan">
+<meta name="description" content="laravel MVC concept, php artisan, env setting, Composer concept, how to run laravel locally">
 
 
-<meta property="og:description" content="normalization or denormalized">
+<meta property="og:description" content="laravel MVC concept, php artisan, env setting, Composer concept, how to run laravel locally">
 <meta property="og:type" content="article">
-<meta property="og:title" content="正規化 or 反正規化，優缺點一次說明">
-<meta name="twitter:title" content="正規化 or 反正規化，優缺點一次說明">
-<meta property="og:url" content="https://jamie-life-coding.site/2021/09/database-normalization-pros-cons/">
-<meta property="twitter:url" content="https://jamie-life-coding.site/2021/09/database-normalization-pros-cons/">
+<meta property="og:title" content="Laravel dev setting - Artisan &amp; Composer &amp; how to run laravel locally">
+<meta name="twitter:title" content="Laravel dev setting - Artisan &amp; Composer &amp; how to run laravel locally">
+<meta property="og:url" content="https://jamie-life-coding.site/2021/12/laravel-artisan-migrations/">
+<meta property="twitter:url" content="https://jamie-life-coding.site/2021/12/laravel-artisan-migrations/">
 <meta property="og:site_name" content="Life coding, record life.">
-<meta property="og:description" content="normalization or denormalized">
-<meta name="twitter:description" content="normalization or denormalized">
+<meta property="og:description" content="laravel MVC concept, php artisan, env setting, Composer concept, how to run laravel locally">
+<meta name="twitter:description" content="laravel MVC concept, php artisan, env setting, Composer concept, how to run laravel locally">
 <meta property="og:locale" content="zh-tw">
 
   
-    <meta property="article:published_time" content="2021-09-07T01:05:01">
+    <meta property="article:published_time" content="2021-12-13T00:15:01">
   
   
-    <meta property="article:modified_time" content="2021-09-07T01:05:01">
+    <meta property="article:modified_time" content="2021-12-13T00:15:01">
   
-  
-  
-    
-      <meta property="article:section" content="coding">
-    
   
   
     
-      <meta property="article:tag" content="database">
+      <meta property="article:section" content="laravel">
+    
+  
+  
+    
+      <meta property="article:tag" content="laravel">
+    
+      <meta property="article:tag" content="metatime">
     
   
 
@@ -92,25 +94,25 @@
 
 
 
-  <meta property="og:image" content="https://jamie-life-coding.site/images/database.jpeg">
-  <meta property="twitter:image" content="https://jamie-life-coding.site/images/database.jpeg">
+  <meta property="og:image" content="https://jamie-life-coding.site/images/laravel.png">
+  <meta property="twitter:image" content="https://jamie-life-coding.site/images/laravel.png">
 
 
-  <meta property="og:image" content="https://jamie-life-coding.site/images/database.jpeg">
-  <meta property="twitter:image" content="https://jamie-life-coding.site/images/database.jpeg">
+  <meta property="og:image" content="https://jamie-life-coding.site/images/laravel.png">
+  <meta property="twitter:image" content="https://jamie-life-coding.site/images/laravel.png">
 
 
-<meta content="database-design, normalize, denormalized" name="keywords">
-<meta content="非本科轉職學習紀錄，紀錄生活與技術|程式|英文|工作效率，record my daily life and share about frontend and backend skills. Use hugo tool to build blog. - normalization or denormalized" property="og:description">
+<meta content="laravel, migrations, seeding, controller, php artisan" name="keywords">
+<meta content="非本科轉職學習紀錄，紀錄生活與技術|程式|英文|工作效率，record my daily life and share about frontend and backend skills. Use hugo tool to build blog. - laravel MVC concept, php artisan, env setting, Composer concept, how to run laravel locally" property="og:description">
 
-    <title>正規化 or 反正規化，優缺點一次說明</title>
+    <title>Laravel dev setting - Artisan &amp; Composer &amp; how to run laravel locally</title>
 
     <link rel="icon" href="https://jamie-life-coding.site/images/logo.jpg">
     
 
     
 
-    <link rel="canonical" href="https://jamie-life-coding.site/2021/09/database-normalization-pros-cons/">
+    <link rel="canonical" href="https://jamie-life-coding.site/2021/12/laravel-artisan-migrations/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -158,6 +160,7 @@
     </a>
   
 </header>
+
       <nav id="sidebar" data-behavior="4">
   <div class="sidebar-container">
     
@@ -225,11 +228,11 @@
 
   <li class="sidebar-button">
     
-      <a class="sidebar-button-link " href="https://jamie-life-coding.site/profile/about-me" title="關於站長">
+      <a class="sidebar-button-link " href="https://jamie-life-coding.site/#about" title="About">
     
-      <i class="sidebar-button-icon fas fa-lg fa-user-circle" aria-hidden="true"></i>
+      <i class="sidebar-button-icon fas fa-lg fa-question" aria-hidden="true"></i>
       
-      <span class="sidebar-button-desc">關於站長</span>
+      <span class="sidebar-button-desc">關於</span>
     </a>
   </li>
 
@@ -279,8 +282,8 @@
       
   <div class="post-header-cover
               text-left
-              post-header-cover--partial"
-       style="background-image:url('/images/database.jpeg')"
+              post-header-cover--full"
+       style="background-image:url('/images/laravel.png')"
        data-behavior="4">
     
   </div>
@@ -292,21 +295,21 @@
                hasCoverCaption">
         <article class="post">
           
-            <span class="post-header-cover-caption caption">you have to decide until knowing everything photo by Caspar Camille Rubin</span>
+            <span class="post-header-cover-caption caption">我跳槽學習 Laravel 了！</span>
           
           
             <div class="post-header main-content-wrap text-left">
   
     <h1 class="post-title">
-      正規化 or 反正規化，優缺點一次說明
+      Laravel dev setting - Artisan &amp; Composer &amp; how to run laravel locally
     </h1>
   
   
   <div class="postShorten-meta post-meta">
     
-      <time datetime="2021-09-07T01:05:01&#43;08:00">
+      <time datetime="2021-12-13T00:15:01&#43;08:00">
         
-  九月 7, 2021
+  十二月 13, 2021
 
       </time>
     
@@ -315,7 +318,7 @@
   
     <span>分類</span>
     
-      <a class="category-link" href="https://jamie-life-coding.site/categories/coding">coding</a>
+      <a class="category-link" href="https://jamie-life-coding.site/categories/laravel">laravel</a>
     
   
 
@@ -325,401 +328,319 @@
           
           <div class="post-content markdown">
             <div class="main-content-wrap">
-              <p>沒有最佳解，你必須通盤了解，才能找到最適解！</p>
+              <p>優美的框架？ Laravel 學習之路！</p>
 <h1 id="本文大綱">本文大綱</h1>
 <ul>
 <li><a href="#%E6%9C%AC%E6%96%87%E5%A4%A7%E7%B6%B1">本文大綱</a></li>
-<li><a href="#%E6%AD%A3%E8%A6%8F%E5%8C%96">正規化</a></li>
-<li><a href="#%E6%AD%A3%E8%A6%8F%E5%8C%96%E7%B4%B0%E7%AF%80">正規化細節</a></li>
-<li><a href="#%E4%BB%80%E9%BA%BC%E6%99%82%E5%80%99%E5%8F%8D%E6%AD%A3%E8%A6%8F%E5%8C%96">什麼時候反正規化</a></li>
-<li><a href="#%E5%AD%B8%E7%BF%92%E9%87%8D%E9%BB%9E">學習重點</a></li>
+<li><a href="#laravel-%E5%AD%B8%E7%BF%92%E5%8B%95%E6%A9%9F">Laravel 學習動機</a></li>
+<li><a href="#laravel-%E8%B5%B7%E6%89%8B%E5%BC%8F-artisan">Laravel 起手式 artisan</a></li>
+<li><a href="#composer">composer</a></li>
+<li><a href="#%E5%89%B5%E5%BB%BA-laravel-%E4%B8%A6%E5%9C%A8%E5%9C%B0%E7%AB%AF%E8%B7%91%E8%B5%B7%E4%BE%86">創建 laravel 並在地端跑起來</a></li>
+<li><a href="#%E5%BF%83%E5%BE%97">心得</a></li>
 <li><a href="#%E5%8F%83%E8%80%83%E9%80%A3%E7%B5%90">參考連結</a></li>
 </ul>
-<h1 id="正規化">正規化</h1>
-<p>最近在寫程式時，常面臨到 database join 來 join 去，導致於執行速度過慢，開發時，又要理解很多 table 之間的關聯，正規化真的好嗎？</p>
+<h1 id="laravel-學習動機">Laravel 學習動機</h1>
+<p>目前在公司都是寫 Codeigniter，優點不外乎是易寫、好懂、輕量，缺點難維護、沒有固定 pattern，慢慢重構程式碼過程中，有慢慢知道什麼 Code 是好的，什麼是不好的，也去看看市場上的主流框架是否跟公司內部一樣。
+Laravel 從我剛轉職工程師不久就常聽到，跟 Codeigniter 一樣都是 PHP Framework，以下是 PHP framework trend</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"><a href="https://jamie-life-coding.site/images/php-trend.png"><img src="https://jamie-life-coding.site/images/php-trend.png" alt="php-trend"> </a></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><em>php-trend resouce from <a href="https://dev.to/theme_selection/which-php-framework-is-best-for-web-development-in-2021-5ck5">https://dev.to/theme_selection/which-php-framework-is-best-for-web-development-in-2021-5ck5</a></em></td>
+</tr>
+</tbody>
+</table>
 <blockquote>
-<p>當你不知道選擇哪個架構，往往是你不清楚你想要什麼？</p>
+<p>都入坑 PHP 這麼久，不知道誰是老大或不知道老大的好，不太對吧！ 另個現實是PHP相關職缺好像都是 Laravel related</p>
 </blockquote>
-<p>正規化要解決的事情是降低資料的重複性，你不會在一個 table 裡面看到 <code>訂單資料</code> 、 <code>使用者資料</code>，這樣這張表就太多 column，一個視窗也拉不完，因此會將 <code>訂單資料</code> 成一個獨立的表， <code>使用者資料</code> 成另一個獨立表，可避免資料重複。<!-- raw HTML omitted --></p>
-<p>正規化的優點：
-<div class="alert success ">
-  <p><ol>
-<li>降低資料的重複性</li>
-<li>去除相依性，利用外部索引鍵，產生關聯</li>
-<li>update 資料較快(因 update 部分資料，例如：只想更新使用者地址，那就更新使用者資料，不必更新訂單的每個資料)</li>
-</ol>
-</p>
-</div></p>
-<p><!-- raw HTML omitted -->正規化的缺點：<!-- raw HTML omitted -->
-<div class="alert warning ">
-  <p><ol>
-<li>耦合性高，牽一髮動全身(約束性強)</li>
-<li>查詢較慢(如 join table 到一定數量，爆炸慢)</li>
-<li>DB I/O 繁忙，因為 join 很多表</li>
-<li>儲存成本高</li>
-</ol>
-</p>
-</div></p>
-<h1 id="正規化細節">正規化細節</h1>
-<ol>
-<li>
-<p>第一正規化：去除重複性，像是購物車訂單，不會包含此筆訂單下的所有商品，不會存成&hellip;
-<div class="alert danger ">
-  <p><p>錯誤示範 cart_orders</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">id</th>
-<th style="text-align:center">user</th>
-<th style="text-align:center">product</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">1</td>
-<td style="text-align:center">jamie</td>
-<td style="text-align:center">麥片、水果</td>
-</tr>
-<tr>
-<td style="text-align:center">2</td>
-<td style="text-align:center">win</td>
-<td style="text-align:center">水果、滑鼠</td>
-</tr>
-<tr>
-<td style="text-align:center">3</td>
-<td style="text-align:center">leo</td>
-<td style="text-align:center">滑鼠、麥片</td>
-</tr>
-</tbody>
-</table>
-</p>
-</div>
-<!-- raw HTML omitted -->
-應該會存成下面這樣，才會是模範生&hellip;
-<!-- raw HTML omitted -->
-<div class="alert success ">
-  <p><p>正確示範 cart_orders</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">id</th>
-<th style="text-align:center">user</th>
-<th style="text-align:center">product</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">1</td>
-<td style="text-align:center">jamie</td>
-<td style="text-align:center">麥片</td>
-</tr>
-<tr>
-<td style="text-align:center">2</td>
-<td style="text-align:center">jamie</td>
-<td style="text-align:center">水果</td>
-</tr>
-<tr>
-<td style="text-align:center">3</td>
-<td style="text-align:center">win</td>
-<td style="text-align:center">水果</td>
-</tr>
-<tr>
-<td style="text-align:center">4</td>
-<td style="text-align:center">win</td>
-<td style="text-align:center">滑鼠</td>
-</tr>
-<tr>
-<td style="text-align:center">5</td>
-<td style="text-align:center">leo</td>
-<td style="text-align:center">滑鼠</td>
-</tr>
-<tr>
-<td style="text-align:center">6</td>
-<td style="text-align:center">leo</td>
-<td style="text-align:center">麥片</td>
-</tr>
-</tbody>
-</table>
-</p>
-</div></p>
-<!-- raw HTML omitted -->
-</li>
-<li>
-<p>第二正規化：去除相依性，使用外部索引鍵，讓這些資料表產生關聯，而不是一張 table 塞入所有資訊<br>
-不要以為剛剛那樣就很完美，還有一些地方可以優化，仔細看下面示範，把 <code>user</code> 與 <code>product</code> 放在同一張表內
-<div class="alert danger ">
-  <p><p>錯誤示範 cart_orders</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">id</th>
-<th style="text-align:center">user</th>
-<th style="text-align:center">product</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">1</td>
-<td style="text-align:center">jamie</td>
-<td style="text-align:center">麥片</td>
-</tr>
-<tr>
-<td style="text-align:center">2</td>
-<td style="text-align:center">jamie</td>
-<td style="text-align:center">水果</td>
-</tr>
-<tr>
-<td style="text-align:center">3</td>
-<td style="text-align:center">win</td>
-<td style="text-align:center">水果</td>
-</tr>
-<tr>
-<td style="text-align:center">4</td>
-<td style="text-align:center">win</td>
-<td style="text-align:center">滑鼠</td>
-</tr>
-<tr>
-<td style="text-align:center">5</td>
-<td style="text-align:center">leo</td>
-<td style="text-align:center">滑鼠</td>
-</tr>
-<tr>
-<td style="text-align:center">6</td>
-<td style="text-align:center">leo</td>
-<td style="text-align:center">麥片</td>
-</tr>
-</tbody>
-</table>
-</p>
-</div>
-<!-- raw HTML omitted -->
-應該要分成兩張表 <code>users</code> 跟 <code>cart_orders</code>
-<!-- raw HTML omitted -->
-<div class="alert success ">
-  <p><p>正確示範 cart_orders</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">id</th>
-<th style="text-align:center">user_id</th>
-<th style="text-align:center">product</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">1</td>
-<td style="text-align:center">1</td>
-<td style="text-align:center">麥片</td>
-</tr>
-<tr>
-<td style="text-align:center">2</td>
-<td style="text-align:center">1</td>
-<td style="text-align:center">水果</td>
-</tr>
-<tr>
-<td style="text-align:center">3</td>
-<td style="text-align:center">2</td>
-<td style="text-align:center">水果</td>
-</tr>
-<tr>
-<td style="text-align:center">4</td>
-<td style="text-align:center">2</td>
-<td style="text-align:center">滑鼠</td>
-</tr>
-<tr>
-<td style="text-align:center">5</td>
-<td style="text-align:center">3</td>
-<td style="text-align:center">滑鼠</td>
-</tr>
-<tr>
-<td style="text-align:center">6</td>
-<td style="text-align:center">3</td>
-<td style="text-align:center">麥片</td>
-</tr>
-</tbody>
-</table>
-<p>正確示範 users</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">id</th>
-<th style="text-align:center">name</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">1</td>
-<td style="text-align:center">jamie</td>
-</tr>
-<tr>
-<td style="text-align:center">2</td>
-<td style="text-align:center">win</td>
-</tr>
-<tr>
-<td style="text-align:center">3</td>
-<td style="text-align:center">leo</td>
-</tr>
-</tbody>
-</table>
-</p>
-</div></p>
-</li>
-<li>
-<p>第三正規化：刪除不依賴索引鍵的欄位，例如說：訂單數量 <code>count</code> 與單價 <code>unit_price</code> 已經存在表單，又多了每一筆訂單的 amount，就是不必要的<br>
-因此，剛剛的 schema 還可以優化，例如說以下錯誤示範
-<div class="alert danger ">
-  <p><p>錯誤示範 cart_orders</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">id</th>
-<th style="text-align:center">user_id</th>
-<th style="text-align:center">product</th>
-<th style="text-align:center">count</th>
-<th style="text-align:center">unit_price</th>
-<th style="text-align:center">amount</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">1</td>
-<td style="text-align:center">1</td>
-<td style="text-align:center">麥片</td>
-<td style="text-align:center">2</td>
-<td style="text-align:center">2</td>
-<td style="text-align:center">4</td>
-</tr>
-<tr>
-<td style="text-align:center">2</td>
-<td style="text-align:center">1</td>
-<td style="text-align:center">水果</td>
-<td style="text-align:center">3</td>
-<td style="text-align:center">1</td>
-<td style="text-align:center">3</td>
-</tr>
-<tr>
-<td style="text-align:center">3</td>
-<td style="text-align:center">2</td>
-<td style="text-align:center">水果</td>
-<td style="text-align:center">4</td>
-<td style="text-align:center">1</td>
-<td style="text-align:center">4</td>
-</tr>
-<tr>
-<td style="text-align:center">4</td>
-<td style="text-align:center">2</td>
-<td style="text-align:center">滑鼠</td>
-<td style="text-align:center">1</td>
-<td style="text-align:center">10</td>
-<td style="text-align:center">10</td>
-</tr>
-<tr>
-<td style="text-align:center">5</td>
-<td style="text-align:center">3</td>
-<td style="text-align:center">滑鼠</td>
-<td style="text-align:center">7</td>
-<td style="text-align:center">10</td>
-<td style="text-align:center">70</td>
-</tr>
-<tr>
-<td style="text-align:center">6</td>
-<td style="text-align:center">3</td>
-<td style="text-align:center">麥片</td>
-<td style="text-align:center">10</td>
-<td style="text-align:center">2</td>
-<td style="text-align:center">20</td>
-</tr>
-</tbody>
-</table>
-</p>
-</div>
-<!-- raw HTML omitted -->
-應該要把相依性 amount 拿掉
-<!-- raw HTML omitted -->
-<div class="alert success ">
-  <p><p>正確示範 cart_orders</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">id</th>
-<th style="text-align:center">user_id</th>
-<th style="text-align:center">product</th>
-<th style="text-align:center">count</th>
-<th style="text-align:center">unit_price</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">1</td>
-<td style="text-align:center">1</td>
-<td style="text-align:center">麥片</td>
-<td style="text-align:center">2</td>
-<td style="text-align:center">2</td>
-</tr>
-<tr>
-<td style="text-align:center">2</td>
-<td style="text-align:center">1</td>
-<td style="text-align:center">水果</td>
-<td style="text-align:center">3</td>
-<td style="text-align:center">1</td>
-</tr>
-<tr>
-<td style="text-align:center">3</td>
-<td style="text-align:center">2</td>
-<td style="text-align:center">水果</td>
-<td style="text-align:center">4</td>
-<td style="text-align:center">1</td>
-</tr>
-<tr>
-<td style="text-align:center">4</td>
-<td style="text-align:center">2</td>
-<td style="text-align:center">滑鼠</td>
-<td style="text-align:center">1</td>
-<td style="text-align:center">10</td>
-</tr>
-<tr>
-<td style="text-align:center">5</td>
-<td style="text-align:center">3</td>
-<td style="text-align:center">滑鼠</td>
-<td style="text-align:center">7</td>
-<td style="text-align:center">10</td>
-</tr>
-<tr>
-<td style="text-align:center">6</td>
-<td style="text-align:center">3</td>
-<td style="text-align:center">麥片</td>
-<td style="text-align:center">10</td>
-<td style="text-align:center">2</td>
-</tr>
-</tbody>
-</table>
-</p>
-</div></p>
-</li>
-</ol>
-<h1 id="什麼時候反正規化">什麼時候反正規化</h1>
-<p>教科學經常告訴學生最好的參照方式，但實際運用時必須考慮天時、地利、人和，簡單說，就是必須考量到實際運用情境。<!-- raw HTML omitted -->
-當你遇到商業邏輯極為複雜時，又使得資料庫正規化到極致，很有可能讓後續維護困難<br>
-以下幾種情境可以使用反正規化
+<h1 id="laravel-起手式-artisan">Laravel 起手式 artisan</h1>
+<p>知識 +++
 <div class="alert info ">
-  <p><ol>
-<li>耦合性高，牽一髮動全身(約束性強)</li>
-<li>經常要查詢，但不常更動的設計(因為常查詢如果反正規化可以少 join 一堆 table)</li>
-<li>資料不超過百萬</li>
-<li>不要求快速寫入</li>
-</ol>
-</p>
+  <p>Artisan： Laravel 框架內的的魔法指令，簡單說指令集合的工具包，可以透過 artisan 去幫你建立常用到的 MVC 以及其他功能。</p>
 </div></p>
-<h1 id="學習重點">學習重點</h1>
-<p>這一次要重整公司複雜的商業邏輯，因過去時空背景下，是將資料正規化到極致，導致於後續維護成本高，因此尋找有沒有更簡單的解法，<br>
-可以讓前人種樹，後人乘涼的解法，因此找到了<code>反正規化</code>，因此寫了兩者的比較，讓自己對 database schema 設計更了解，才能設計出更好的架構。</p>
+
+
+  
+  
+  
+  
+  
+
+
+  
+    
+  
+  
+
+<figure class="codeblock codeblock--tabbed">
+  <figcaption>
+    
+      <span>command-line</span>
+    
+    <ul class="tabs">
+      
+        <li class="tab active">cmd</li>
+      
+    </ul>
+  </figcaption>
+  <div class="tabs-content">
+    
+      
+      <figure class="highlight language-cmd cmd" style="display: block;">
+        <table>
+          <tbody>
+            <tr>
+              <td class="gutter">
+                <pre><span>1</span><br><span>2</span><br><span>3</span><br><span>4</span><br></pre>
+              </td>
+              <td class="code">
+                <pre class="code-highlight language-cmd cmd"><code class="cmd">// 1. 看有哪些指令
+php artisan list
+// 2. help 單一指令
+php artisan help migrate</code></pre>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </figure>
+    
+  </div>
+</figure>
+
+<h1 id="composer">composer</h1>
+<p>知識 +++
+<div class="alert info ">
+  <p>Composer：php 套件管理機制，安裝完成後，它會在當前資料夾下建立 composer.json、composer.lock 及 vendor/ 的資料夾。<br>
+簡單說就跟 node 的 package.json 很像，去紀錄 workspack repo 內安裝的套件</p>
+</div></p>
+<h1 id="創建-laravel-並在地端跑起來">創建 laravel 並在地端跑起來</h1>
+<p>分為兩種情況自建或是複製 github 上的 repo，只要最後可以 run laravel locally 就算成功！</p>
+<ol>
+<li>自建
+
+
+  
+  
+  
+  
+  
+
+
+  
+    
+  
+  
+
+<figure class="codeblock codeblock--tabbed">
+  <figcaption>
+    
+      <span>command-line</span>
+    
+    <ul class="tabs">
+      
+        <li class="tab active">cmd</li>
+      
+    </ul>
+  </figcaption>
+  <div class="tabs-content">
+    
+      
+      <figure class="highlight language-cmd cmd" style="display: block;">
+        <table>
+          <tbody>
+            <tr>
+              <td class="gutter">
+                <pre><span>1</span><br><span>2</span><br><span>3</span><br></pre>
+              </td>
+              <td class="code">
+                <pre class="code-highlight language-cmd cmd"><code class="cmd">laravel new project-name
+// run laravel locally 可指定 port 或不寫
+php artisan serve --port=8000</code></pre>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </figure>
+    
+  </div>
+</figure>
+</li>
+<li>clone
+我著重講 clone 好了！畢竟新手如我卡在這邊<br>
+Step 1. <code>git clone your-url.git</code><br>
+Step 2. 裝相對應套件 <code>composer install</code>
+Step 3. 通常作者會有一份叫做 <code>.env.example</code> 的檔案，複製它命名為 .env <code>cp .env.example .env</code>
+Step 4. 確認 <code>.env</code> setting 可參考下面</li>
+</ol>
+
+
+  
+  
+  
+  
+  
+
+
+  
+    
+  
+  
+
+<figure class="codeblock codeblock--tabbed">
+  <figcaption>
+    
+      <span>config</span>
+    
+    <ul class="tabs">
+      
+        <li class="tab active">env</li>
+      
+    </ul>
+  </figcaption>
+  <div class="tabs-content">
+    
+      
+      <figure class="highlight language-env env" style="display: block;">
+        <table>
+          <tbody>
+            <tr>
+              <td class="gutter">
+                <pre><span>1</span><br><span>2</span><br><span>3</span><br><span>4</span><br><span>5</span><br><span>6</span><br></pre>
+              </td>
+              <td class="code">
+                <pre class="code-highlight language-env env"><code class="env">DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=laravel
+DB_USERNAME=root
+DB_PASSWORD=root</code></pre>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </figure>
+    
+  </div>
+</figure>
+
 <blockquote>
-<p>可以簡單，何必複雜！</p>
+<p>這邊應該下 <code>php artisan serve</code> 可以 run 起來了！但因為複製 repo 通常會 conn db 因此接下來步驟為解決 db conn 問題</p>
 </blockquote>
+<p>Step 5. migrate 依據各 repo 情況，記住如果 repo 有設定 db name 要記得手動建立 db，名字要吻合</p>
+<blockquote>
+<p>順道一提 migrate 是 laravel 去紀錄 db 異動的版控，下一篇看有沒有時間去細提，只能說把 db schema 放進版控，真是傑出的一手!!!
+重要、重要、重要!!!!! 記得打開 MySQL，笨蛋如我忘記開&hellip;</p>
+</blockquote>
+
+
+  
+  
+  
+  
+  
+
+
+  
+    
+  
+  
+
+<figure class="codeblock codeblock--tabbed">
+  <figcaption>
+    
+      <span>command-line</span>
+    
+    <ul class="tabs">
+      
+        <li class="tab active">cmd</li>
+      
+    </ul>
+  </figcaption>
+  <div class="tabs-content">
+    
+      
+      <figure class="highlight language-cmd cmd" style="display: block;">
+        <table>
+          <tbody>
+            <tr>
+              <td class="gutter">
+                <pre><span>1</span><br><span>2</span><br><span>3</span><br><span>4</span><br><span>5</span><br><span>6</span><br></pre>
+              </td>
+              <td class="code">
+                <pre class="code-highlight language-cmd cmd"><code class="cmd">// sets the APP_KEY value in your .env file.
+php artisan key:generate
+// 資料庫不存在，直接使用此指令
+php artisan migrate --seed
+// 資料庫已存在，可以加上 :refresh 刷掉(用這個）
+php artisan migrate:refresh --seed</code></pre>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </figure>
+    
+  </div>
+</figure>
+
+<p>Step 6. 啟動 laravel  <code>php artisan serve --port=8000</code></p>
+<p>疑難雜症. 可以試著清除一些設定，再重複上面的指令，真不行就 google 一下，祝你馬到成功
+
+
+  
+  
+  
+  
+  
+
+
+  
+    
+  
+  
+
+<figure class="codeblock codeblock--tabbed">
+  <figcaption>
+    
+      <span>command-line</span>
+    
+    <ul class="tabs">
+      
+        <li class="tab active">cmd</li>
+      
+    </ul>
+  </figcaption>
+  <div class="tabs-content">
+    
+      
+      <figure class="highlight language-cmd cmd" style="display: block;">
+        <table>
+          <tbody>
+            <tr>
+              <td class="gutter">
+                <pre><span>1</span><br><span>2</span><br></pre>
+              </td>
+              <td class="code">
+                <pre class="code-highlight language-cmd cmd"><code class="cmd">php artisan cache:clear 
+php artisan config:clear</code></pre>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </figure>
+    
+  </div>
+</figure>
+</p>
+<h1 id="心得">心得</h1>
+<p>寫文章記錄真的是一件花時間的事情，不累但很耗時，好處是可以把之前踩過的雷去再回想一次，也希望做個紀錄，算是一些小小成就感，這一篇主要是去紀錄簡單的 Laravel dev setting 全記錄，下一篇再來紀錄開發的學習，MVC 與 controllers/migrations 等觀念。</p>
 <h1 id="參考連結">參考連結</h1>
 <ul>
-<li><a href="https://kylinyu.win/table-normalize-or-denormalized/">資料庫到底要不要做正規化</a></li>
-<li><a href="https://mark-lin.com/posts/20160917/">正規與反正規化的戰爭</a></li>
+<li><a href="https://laravel.com/docs/8.x">laravel 8</a></li>
+<li><a href="https://laravel.tw/docs/5.2">laravel 5.2 中文</a></li>
 </ul>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>
@@ -747,7 +668,9 @@
                   <div class="post-footer-tags">
                     <span class="text-color-light text-small">標籤</span><br/>
                     
-  <a class="tag tag--primary tag--small" href="https://jamie-life-coding.site/tags/database/">database</a>
+  <a class="tag tag--primary tag--small" href="https://jamie-life-coding.site/tags/laravel/">laravel</a>
+
+  <a class="tag tag--primary tag--small" href="https://jamie-life-coding.site/tags/metatime/">metatime</a>
 
                   </div>
                 
@@ -760,7 +683,7 @@
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://jamie-life-coding.site/2021/09/how-to-improve-database-query-1/" data-tooltip="如何優化資料庫 query，從 explain 開始吧 — 上半場 select_type" aria-label="下一篇: 如何優化資料庫 query，從 explain 開始吧 — 上半場 select_type">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
@@ -768,7 +691,7 @@
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://jamie-life-coding.site/2021/09/hugo-from-beginning-to-done/" data-tooltip="Hugo 從 0 到 1" aria-label="上一篇: Hugo 從 0 到 1">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://jamie-life-coding.site/2021/10/javascript-copy-object/" data-tooltip="Javascript 讓你困惑的事 - copy object" aria-label="上一篇: Javascript 讓你困惑的事 - copy object">
               
                   <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
                   <i class="fa fa-angle-right"></i>
@@ -786,19 +709,19 @@
         </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://jamie-life-coding.site/2021/09/database-normalization-pros-cons/" title="分享到 %s Facebook" aria-label="分享到 %s Facebook">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://jamie-life-coding.site/2021/12/laravel-artisan-migrations/" title="分享到 %s Facebook" aria-label="分享到 %s Facebook">
               <i class="fab fa-facebook-square" aria-hidden="true"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://jamie-life-coding.site/2021/09/database-normalization-pros-cons/" title="分享到 %s Twitter" aria-label="分享到 %s Twitter">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://jamie-life-coding.site/2021/12/laravel-artisan-migrations/" title="分享到 %s Twitter" aria-label="分享到 %s Twitter">
               <i class="fab fa-twitter" aria-hidden="true"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://jamie-life-coding.site/2021/09/database-normalization-pros-cons/" title="分享到 %s Google&#43;" aria-label="分享到 %s Google&#43;">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://jamie-life-coding.site/2021/12/laravel-artisan-migrations/" title="分享到 %s Google&#43;" aria-label="分享到 %s Google&#43;">
               <i class="fab fa-google-plus" aria-hidden="true"></i>
             </a>
           </li>
@@ -830,9 +753,9 @@
     <script type="text/javascript">
       var disqus_config = function() {
         this.language = 'en';
-        this.page.url = 'https:\/\/jamie-life-coding.site\/2021\/09\/database-normalization-pros-cons\/';
+        this.page.url = 'https:\/\/jamie-life-coding.site\/2021\/12\/laravel-artisan-migrations\/';
         
-          this.page.identifier = '\/2021\/09\/database-normalization-pros-cons\/'
+          this.page.identifier = '\/2021\/12\/laravel-artisan-migrations\/'
         
       };
       (function() {
@@ -859,7 +782,7 @@
   </span>
   <br/>
   <span class="copyrights">
-    &copy; 2022 Jamie Huang. All Rights Reserved
+    &copy; 2021 Jamie Huang. All Rights Reserved
   </span>
 </footer>
 
@@ -872,7 +795,7 @@
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://jamie-life-coding.site/2021/09/how-to-improve-database-query-1/" data-tooltip="如何優化資料庫 query，從 explain 開始吧 — 上半場 select_type" aria-label="下一篇: 如何優化資料庫 query，從 explain 開始吧 — 上半場 select_type">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
@@ -880,7 +803,7 @@
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://jamie-life-coding.site/2021/09/hugo-from-beginning-to-done/" data-tooltip="Hugo 從 0 到 1" aria-label="上一篇: Hugo 從 0 到 1">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://jamie-life-coding.site/2021/10/javascript-copy-object/" data-tooltip="Javascript 讓你困惑的事 - copy object" aria-label="上一篇: Javascript 讓你困惑的事 - copy object">
               
                   <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
                   <i class="fa fa-angle-right"></i>
@@ -898,19 +821,19 @@
         </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://jamie-life-coding.site/2021/09/database-normalization-pros-cons/" title="分享到 %s Facebook" aria-label="分享到 %s Facebook">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://jamie-life-coding.site/2021/12/laravel-artisan-migrations/" title="分享到 %s Facebook" aria-label="分享到 %s Facebook">
               <i class="fab fa-facebook-square" aria-hidden="true"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://jamie-life-coding.site/2021/09/database-normalization-pros-cons/" title="分享到 %s Twitter" aria-label="分享到 %s Twitter">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://jamie-life-coding.site/2021/12/laravel-artisan-migrations/" title="分享到 %s Twitter" aria-label="分享到 %s Twitter">
               <i class="fab fa-twitter" aria-hidden="true"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://jamie-life-coding.site/2021/09/database-normalization-pros-cons/" title="分享到 %s Google&#43;" aria-label="分享到 %s Google&#43;">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://jamie-life-coding.site/2021/12/laravel-artisan-migrations/" title="分享到 %s Google&#43;" aria-label="分享到 %s Google&#43;">
               <i class="fab fa-google-plus" aria-hidden="true"></i>
             </a>
           </li>
@@ -941,19 +864,19 @@
   <ul class="share-options">
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fjamie-life-coding.site%2F2021%2F09%2Fdatabase-normalization-pros-cons%2F" aria-label="分享到 %s Facebook">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fjamie-life-coding.site%2F2021%2F12%2Flaravel-artisan-migrations%2F" aria-label="分享到 %s Facebook">
           <i class="fab fa-facebook-square" aria-hidden="true"></i><span>分享到 Facebook</span>
         </a>
       </li>
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fjamie-life-coding.site%2F2021%2F09%2Fdatabase-normalization-pros-cons%2F" aria-label="分享到 %s Twitter">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fjamie-life-coding.site%2F2021%2F12%2Flaravel-artisan-migrations%2F" aria-label="分享到 %s Twitter">
           <i class="fab fa-twitter" aria-hidden="true"></i><span>分享到 Twitter</span>
         </a>
       </li>
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Fjamie-life-coding.site%2F2021%2F09%2Fdatabase-normalization-pros-cons%2F" aria-label="分享到 %s Google&#43;">
+        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Fjamie-life-coding.site%2F2021%2F12%2Flaravel-artisan-migrations%2F" aria-label="分享到 %s Google&#43;">
           <i class="fab fa-google-plus" aria-hidden="true"></i><span>分享到 Google&#43;</span>
         </a>
       </li>

@@ -5,9 +5,9 @@ description: "database query performance improve, explain query, select_type"
 slug: "how-to-improve-database-query-1"
 draft: false
 categories:
-- database
+- coding
 tags:
-- database-query
+- database
 keywords:
 - database query 
 - database index

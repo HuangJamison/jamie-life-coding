@@ -5,9 +5,8 @@ description: "lidemy learning, redux, react-redux, self-learning"
 slug: "redux-lidemy-learning"
 draft: false
 categories:
-- react
+- coding
 tags:
-- self-learning
 - redux
 keywords:
 - redux

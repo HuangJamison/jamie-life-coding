@@ -5,9 +5,9 @@ description: "hugo 建置，hugo themes, Tranquilpeak, blog-setting"
 slug: "hugo-from-beginning-to-done"
 draft: false
 categories:
-- hugo
+- blog-setting
 tags:
-- blog-settings
+- hugo
 keywords:
 - hugo
 - deploy

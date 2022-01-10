@@ -81,16 +81,16 @@ canonifyurls = true
   url = "/archives"
 [[menu.main]]
   weight = 5
-  identifier = "say-english"
-  name = "英文大聲說團"
+  identifier = "keelung-english"
+  name = "說說英文"
   pre = "<i class=\"sidebar-button-icon fas fa-lg fa-users\" aria-hidden=\"true\"></i>"
-  url = "page/say-english"
+  url = "keelung-english/introduction"
 [[menu.main]]
   weight = 6
-  identifier = "about"
-  name = "About"
-  pre = "<i class=\"sidebar-button-icon fas fa-lg fa-question\" aria-hidden=\"true\"></i>"
-  url = "/#about"
+  identifier = "about-me"
+  name = "關於站長"
+  pre = "<i class=\"sidebar-button-icon fas fa-lg fa-user-circle\" aria-hidden=\"true\"></i>"
+  url = "/profile/about-me"
 [[menu.links]]
   weight = 1
   identifier = "github"

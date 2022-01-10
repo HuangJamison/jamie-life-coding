@@ -4,9 +4,9 @@ date: 2021-08-22T19:35:01+08:00
 description: "從 medium 離開與選擇 hugo 寫部落格的原因"
 draft: false
 categories:
-- hugo
+- mood
 tags:
-- 心情543
+- hugo
 keywords:
 - medium
 - hugo

@@ -5,9 +5,9 @@ description: "normalization or denormalized"
 slug: "database-normalization-pros-cons"
 draft: false
 categories:
-- database
+- coding
 tags:
-- database-design
+- database
 keywords:
 - database-design
 - normalize

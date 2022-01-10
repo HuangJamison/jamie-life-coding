@@ -7,12 +7,12 @@
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "如何優化資料庫 query，從 explain 開始吧 — 上半場 select_type",
+  "headline": "Javascript 讓你困惑的事 - copy object",
   
-  "image": "https://jamie-life-coding.site/images/loading.jpeg",
+  "image": "https://jamie-life-coding.site/images/copy.jpeg",
   
-  "datePublished": "2021-09-12T23:35:01+08:00",
-  "dateModified": "2021-09-12T23:35:01+08:00",
+  "datePublished": "2021-10-16T01:35:01+08:00",
+  "dateModified": "2021-10-16T01:35:01+08:00",
   "author": {
     "@type": "Person",
     "name": "Jamie Huang",
@@ -22,7 +22,7 @@
   },
   "mainEntityOfPage": { 
     "@type": "WebPage",
-    "@id": "https:\/\/jamie-life-coding.site\/2021\/09\/how-to-improve-database-query-1\/" 
+    "@id": "https:\/\/jamie-life-coding.site\/2021\/10\/javascript-copy-object\/" 
   },
   "publisher": {
     "@type": "Organization",
@@ -34,8 +34,8 @@
     }
     
   },
-  "description": "越煩雜越要整理，每次用到，每次忘記XD\n",
-  "keywords": ["database query, database index, explain select_type"]
+  "description": "痛過才記得 JS 讓我困惑的地方，踩雷紀錄，弄不清楚拷貝讓你覺得靠北\u0026hellip;\n",
+  "keywords": ["deep copy, shallow copy, javascript copy"]
 }
 
 </script>
@@ -44,26 +44,26 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="generator" content="Hugo 0.87.0 with theme Tranquilpeak 0.5.0-BETA">
 <meta name="author" content="Jamie Huang">
-<meta name="keywords" content="database query, database index, explain select_type">
-<meta name="description" content="database query performance improve, explain query, select_type">
+<meta name="keywords" content="deep copy, shallow copy, javascript copy">
+<meta name="description" content="shallow-copy, deep-copy, javascript copy object">
 
 
-<meta property="og:description" content="database query performance improve, explain query, select_type">
+<meta property="og:description" content="shallow-copy, deep-copy, javascript copy object">
 <meta property="og:type" content="article">
-<meta property="og:title" content="如何優化資料庫 query，從 explain 開始吧 — 上半場 select_type">
-<meta name="twitter:title" content="如何優化資料庫 query，從 explain 開始吧 — 上半場 select_type">
-<meta property="og:url" content="https://jamie-life-coding.site/2021/09/how-to-improve-database-query-1/">
-<meta property="twitter:url" content="https://jamie-life-coding.site/2021/09/how-to-improve-database-query-1/">
+<meta property="og:title" content="Javascript 讓你困惑的事 - copy object">
+<meta name="twitter:title" content="Javascript 讓你困惑的事 - copy object">
+<meta property="og:url" content="https://jamie-life-coding.site/2021/10/javascript-copy-object/">
+<meta property="twitter:url" content="https://jamie-life-coding.site/2021/10/javascript-copy-object/">
 <meta property="og:site_name" content="Life coding, record life.">
-<meta property="og:description" content="database query performance improve, explain query, select_type">
-<meta name="twitter:description" content="database query performance improve, explain query, select_type">
+<meta property="og:description" content="shallow-copy, deep-copy, javascript copy object">
+<meta name="twitter:description" content="shallow-copy, deep-copy, javascript copy object">
 <meta property="og:locale" content="zh-tw">
 
   
-    <meta property="article:published_time" content="2021-09-12T23:35:01">
+    <meta property="article:published_time" content="2021-10-16T01:35:01">
   
   
-    <meta property="article:modified_time" content="2021-09-12T23:35:01">
+    <meta property="article:modified_time" content="2021-10-16T01:35:01">
   
   
   
@@ -73,7 +73,7 @@
   
   
     
-      <meta property="article:tag" content="database">
+      <meta property="article:tag" content="javascript">
     
   
 
@@ -92,25 +92,25 @@
 
 
 
-  <meta property="og:image" content="https://jamie-life-coding.site/images/loading.jpeg">
-  <meta property="twitter:image" content="https://jamie-life-coding.site/images/loading.jpeg">
+  <meta property="og:image" content="https://jamie-life-coding.site/images/copy.jpeg">
+  <meta property="twitter:image" content="https://jamie-life-coding.site/images/copy.jpeg">
 
 
-  <meta property="og:image" content="https://jamie-life-coding.site/images/loading.jpeg">
-  <meta property="twitter:image" content="https://jamie-life-coding.site/images/loading.jpeg">
+  <meta property="og:image" content="https://jamie-life-coding.site/images/copy.jpeg">
+  <meta property="twitter:image" content="https://jamie-life-coding.site/images/copy.jpeg">
 
 
-<meta content="database query, database index, explain select_type" name="keywords">
-<meta content="非本科轉職學習紀錄，紀錄生活與技術|程式|英文|工作效率，record my daily life and share about frontend and backend skills. Use hugo tool to build blog. - database query performance improve, explain query, select_type" property="og:description">
+<meta content="deep copy, shallow copy, javascript copy" name="keywords">
+<meta content="非本科轉職學習紀錄，紀錄生活與技術|程式|英文|工作效率，record my daily life and share about frontend and backend skills. Use hugo tool to build blog. - shallow-copy, deep-copy, javascript copy object" property="og:description">
 
-    <title>如何優化資料庫 query，從 explain 開始吧 — 上半場 select_type</title>
+    <title>Javascript 讓你困惑的事 - copy object</title>
 
     <link rel="icon" href="https://jamie-life-coding.site/images/logo.jpg">
     
 
     
 
-    <link rel="canonical" href="https://jamie-life-coding.site/2021/09/how-to-improve-database-query-1/">
+    <link rel="canonical" href="https://jamie-life-coding.site/2021/10/javascript-copy-object/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -280,7 +280,7 @@
   <div class="post-header-cover
               text-left
               post-header-cover--partial"
-       style="background-image:url('/images/loading.jpeg')"
+       style="background-image:url('/images/copy.jpeg')"
        data-behavior="4">
     
   </div>
@@ -292,21 +292,21 @@
                hasCoverCaption">
         <article class="post">
           
-            <span class="post-header-cover-caption caption">imporve query speed photo by lukechesser</span>
+            <span class="post-header-cover-caption caption">複製了，就沒事了嗎？ by kick stock</span>
           
           
             <div class="post-header main-content-wrap text-left">
   
     <h1 class="post-title">
-      如何優化資料庫 query，從 explain 開始吧 — 上半場 select_type
+      Javascript 讓你困惑的事 - copy object
     </h1>
   
   
   <div class="postShorten-meta post-meta">
     
-      <time datetime="2021-09-12T23:35:01&#43;08:00">
+      <time datetime="2021-10-16T01:35:01&#43;08:00">
         
-  九月 12, 2021
+  十月 16, 2021
 
       </time>
     
@@ -325,109 +325,43 @@
           
           <div class="post-content markdown">
             <div class="main-content-wrap">
-              <p>越煩雜越要整理，每次用到，每次忘記XD</p>
+              <p>痛過才記得 JS 讓我困惑的地方，踩雷紀錄，弄不清楚拷貝讓你覺得靠北&hellip;</p>
 <h1 id="本文大綱">本文大綱</h1>
 <ul>
 <li><a href="#%E6%9C%AC%E6%96%87%E5%A4%A7%E7%B6%B1">本文大綱</a></li>
-<li><a href="#%E5%95%8F%E9%A1%8C%E8%B5%B7%E6%BA%90">問題起源</a></li>
-<li><a href="#explain-%E5%9F%BA%E6%9C%AC%E6%AC%84%E4%BD%8D%E8%AA%AA%E6%98%8E">explain 基本欄位說明</a>
-<ul>
-<li><a href="#select_type">select_type</a></li>
-<li><a href="#table">table</a></li>
-</ul>
-</li>
+<li><a href="#javascript-%E8%B3%87%E6%96%99%E5%9E%8B%E6%85%8B">Javascript 資料型態</a></li>
+<li><a href="#objectassign">Object.assign</a></li>
+<li><a href="#%E6%B7%B1%E6%8B%B7%E8%B2%9D%E8%88%87%E6%B7%BA%E6%8B%B7%E8%B2%9D">深拷貝與淺拷貝</a></li>
 <li><a href="#%E5%AD%B8%E7%BF%92%E9%87%8D%E9%BB%9E">學習重點</a></li>
 <li><a href="#%E5%8F%83%E8%80%83%E9%80%A3%E7%B5%90">參考連結</a></li>
 </ul>
-<h1 id="問題起源">問題起源</h1>
-<p>當你開始做報表工具時，自己寫完發現沒問題，沾沾自喜，殊不知業務開多個分頁，形成 slow query，此時該如何解決問題呢？</p>
-<blockquote>
-<p>如果解決不了問題，就解決提出問題的那個人XD</p>
-</blockquote>
-<p>通常我會用以下三個方法去嘗試解決：</p>
+<p>有鑒於要紀錄深拷貝 (deep-copy) 與淺拷貝 (shallow-copy)，就必須一整套去紀錄從 mutable 開始講起&hellip;</p>
+<h1 id="javascript-資料型態">Javascript 資料型態</h1>
 <ol>
-<li>
-<p>詢問需求端，不必要的資料，例如：業務其實不需要一年以前的資料，或是其他欄位沒這麼重要，可以少 join 一些 table</p>
-</li>
-<li>
-<p>盡可能讓 query 簡單，讓痛苦留在 controller，既然 database 為瓶頸，何不嘗試把困難轉嫁到 controllers 上</p>
-</li>
-<li>
-<p>通常前兩項一起使用 90 % 的問題都可以解決，但當商業邏輯極度複雜時，建議診斷看看你的 query， 當然優化 slow query 也可以從這邊開始，練習優化 db query 吧</p>
-</li>
+<li>原始資料型態 Primitive：Boolean/Null/Undefined/Number/String/Symbol，這些都是 Immutable。</li>
+<li>物件資料型態 Object： Array/Object/Function/Date/Map/Set/JSON，這些都是 Mutable。</li>
 </ol>
-<h1 id="explain-基本欄位說明">explain 基本欄位說明</h1>
-<p>先打個預防針，這篇講的不會太深，一般來說，我們查詢一段 query，我們在 query 前加上 <code>EXPLAIN</code> 後就可以看到這段 query 用到哪些 index, type, advice 等等。</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center"><a href="https://jamie-life-coding.site/images/query.png"> <img src="https://jamie-life-coding.site/images/query.png" alt="explain-query"> </a></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center"><em>大概跟第一次看到線性代數一樣</em></td>
-</tr>
-</tbody>
-</table>
-<h2 id="select_type">select_type</h2>
-<div class="alert info ">
-  <p>表示查詢類型，這個查詢是否太過複雜，query 不包含子查詢或是 UNION 都屬於 SIMPLE</p>
+<p><div class="alert info ">
+  <p>什麼是 Immutable？ 什麼是 Mutable?<br>
+Mutable 代表可變的，因此 Immutable 代表不可變的！<br>
+因此像是 Primitive 型態為不可變的資料型態，基本上賦值，pass by value！<br>
+因此像是 Object 型態為可變的資料型態，基本上賦值，pass by reference！</p>
 </div>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">名稱</th>
-<th style="text-align:center">意義</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">SIMPLE</td>
-<td style="text-align:center">不包含子查詢或 UNION</td>
-</tr>
-<tr>
-<td style="text-align:center">PRIMARY</td>
-<td style="text-align:center">指的是複雜查詢的外層查詢，見範例 1</td>
-</tr>
-<tr>
-<td style="text-align:center">SUBQUERY</td>
-<td style="text-align:center">在 select 或 where 中包含子查詢，見範例 1</td>
-</tr>
-<tr>
-<td style="text-align:center">DERIVED</td>
-<td style="text-align:center">在 from 中包含子查詢且被標記為衍生表，見範例 2</td>
-</tr>
-<tr>
-<td style="text-align:center">UNION</td>
-<td style="text-align:center">在 from 中子查詢的出現在 UNION 後的 select，見範例 2</td>
-</tr>
-<tr>
-<td style="text-align:center">UNION RESULT</td>
-<td style="text-align:center">從 UNION 表中獲取結果的 select，見範例 2</td>
-</tr>
-</tbody>
-</table>
+<!-- raw HTML omitted --></p>
+<p>講這麼多，來個範例吧 ~<br>
+<!-- raw HTML omitted --></p>
 <ul>
-<li>
-<p>範例 1：</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center"><a href="https://jamie-life-coding.site/images/query-ex1.png"> <img src="https://jamie-life-coding.site/images/query-ex1.png" alt="explain-query"> </a></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center"><em>query中包含子查詢</em></td>
-</tr>
-</tbody>
-</table>
+<li>Primitive example pass by value
 <ul>
-<li>此時 <code>select * from event where id = ?</code> 就為 PRIMARY</li>
-<li>此刻子查詢的 <code>SELECT id FROM </code>event<code>WHERE</code>event_id<code> = 'line8888'</code>  為 SUBQUERY</li>
-<li>暫存的 UNION 結果存在 UNION RESULT
-
+<li>immutable</li>
+<li><code>originalValue</code> &amp; <code>copyValue</code> 紀錄在不同記憶體位址</li>
+<li>pass by value</li>
+<li>改 <code>copyValue</code> 改動不會異動到 <code>originalValue</code><br>
+<!-- raw HTML omitted --></li>
+</ul>
+</li>
+</ul>
+<p>
 
   
   
@@ -444,40 +378,36 @@
 <figure class="codeblock codeblock--tabbed">
   <figcaption>
     
-      <span>sql</span>
+      <span>primitive-example.js</span>
     
     <ul class="tabs">
       
-        <li class="tab active">sql</li>
+        <li class="tab active">javascript</li>
       
     </ul>
   </figcaption>
   <div class="tabs-content">
     
       
-      <figure class="highlight language-sql sql" style="display: block;">
+      <figure class="highlight language-javascript javascript" style="display: block;">
         <table>
           <tbody>
             <tr>
               <td class="gutter">
-                <pre><span>1</span><br><span>2</span><br><span>3</span><br><span>4</span><br><span>5</span><br><span>6</span><br><span>7</span><br><span>8</span><br><span>9</span><br><span>10</span><br><span>11</span><br><span>12</span><br><span>13</span><br><span>14</span><br><span>15</span><br></pre>
+                <pre><span>1</span><br><span>2</span><br><span>3</span><br><span>4</span><br><span>5</span><br><span>6</span><br><span>7</span><br><span>8</span><br><span>9</span><br><span>10</span><br><span>11</span><br></pre>
               </td>
               <td class="code">
-                <pre class="code-highlight language-sql sql"><code class="sql">    explain 
-        SELECT 
-           * 
-        FROM 
-            `event`
-        WHERE 
-        id = ( 
-        SELECT 
-            id 
-        FROM 
-            `event`
-        WHERE 
-            `event_id` = &#39;line8888&#39;
-        )
-    </code></pre>
+                <pre class="code-highlight language-javascript javascript"><code class="javascript">// immutable different address
+let originalValue = 5;
+let copyValue = originalValue;
+
+copyValue = 10;
+
+console.log(&#39;originalValue:&#39;, originalValue);
+console.log(&#39;copyValue:&#39;, copyValue);
+// outcome
+&gt; &#34;originalValue:&#34; 5
+&gt; &#34;copyValue:&#34; 10</code></pre>
               </td>
             </tr>
           </tbody>
@@ -486,27 +416,19 @@
     
   </div>
 </figure>
-</li>
+
+<!-- raw HTML omitted --></p>
+<ul>
+<li>Object example pass by reference
+<ul>
+<li>mutable</li>
+<li><code>originalObject</code> &amp; <code>copyObject</code> 紀錄在相同記憶體位址</li>
+<li>pass by reference</li>
+<li>改 <code>copyObject</code> 改動會異動到 <code>originalObject</code>
+<!-- raw HTML omitted --></li>
 </ul>
 </li>
-<li>
-<p>範例 2：<br>
-MySQL 會遞迴執行這些子查詢，放在臨時表中</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center"><a href="https://jamie-life-coding.site/images/query-ex2.png"> <img src="https://jamie-life-coding.site/images/query-ex2.png" alt="explain-query"> </a></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center"><em>query中包含UNION</em></td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li>DERIVED 衍生表會由 UNION 開頭那張表作為主表衍生，可以看到 972 rows 是 event 總列數</li>
-<li>UNION 後的 select 的第二張表，會被標記為 UNION，可以看到 19 rows 是 faq 總列數
+</ul>
 
 
   
@@ -524,18 +446,238 @@ MySQL 會遞迴執行這些子查詢，放在臨時表中</p>
 <figure class="codeblock codeblock--tabbed">
   <figcaption>
     
-      <span>sql</span>
+      <span>object-example.js</span>
     
     <ul class="tabs">
       
-        <li class="tab active">sql</li>
+        <li class="tab active">javascript</li>
       
     </ul>
   </figcaption>
   <div class="tabs-content">
     
       
-      <figure class="highlight language-sql sql" style="display: block;">
+      <figure class="highlight language-javascript javascript" style="display: block;">
+        <table>
+          <tbody>
+            <tr>
+              <td class="gutter">
+                <pre><span>1</span><br><span>2</span><br><span>3</span><br><span>4</span><br><span>5</span><br><span>6</span><br><span>7</span><br><span>8</span><br><span>9</span><br><span>10</span><br><span>11</span><br><span>12</span><br><span>13</span><br><span>14</span><br><span>15</span><br><span>16</span><br><span>17</span><br><span>18</span><br></pre>
+              </td>
+              <td class="code">
+                <pre class="code-highlight language-javascript javascript"><code class="javascript">// object mutable
+const originalObject = {
+  fruit: &#39;apple&#39;,
+  price: 20
+};
+
+const copyObject = originalObject;
+copyObject.fruit = &#39;orange&#39;;
+copyObject.price = 30;
+
+console.log(&#39;originalObject:&#39;, originalObject);
+console.log(&#39;copyObject:&#39;, copyObject);
+console.log(&#39;originalObject is equal copyObject:&#39;, copyObject === originalObject);
+
+// outcome
+&gt; &#34;originalObject:&#34; Object { fruit: &#34;orange&#34;, price: 30 }
+&gt; &#34;copyObject:&#34; Object { fruit: &#34;orange&#34;, price: 30 }
+&gt; &#34;originalObject is equal copyObject:&#34; true</code></pre>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </figure>
+    
+  </div>
+</figure>
+
+<p>接下來你就會困惑，我想要複製又不想改到原物件該怎麼做？</p>
+<h1 id="objectassign">Object.assign</h1>
+<blockquote>
+<p>沒錯！ Object.assign 是你的好朋友，詳細可以看 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign">MDN 文件</a></p>
+</blockquote>
+<p><code>Object.assign(target, source)</code> 就是 clone an object！
+將上面的範例帶過來看看<br>
+<!-- raw HTML omitted -->
+
+
+  
+  
+  
+  
+  
+
+
+  
+    
+  
+  
+
+<figure class="codeblock codeblock--tabbed">
+  <figcaption>
+    
+      <span>object-example.js</span>
+    
+    <ul class="tabs">
+      
+        <li class="tab active">javascript</li>
+      
+    </ul>
+  </figcaption>
+  <div class="tabs-content">
+    
+      
+      <figure class="highlight language-javascript javascript" style="display: block;">
+        <table>
+          <tbody>
+            <tr>
+              <td class="gutter">
+                <pre><span>1</span><br><span>2</span><br><span>3</span><br><span>4</span><br><span>5</span><br><span>6</span><br><span>7</span><br><span>8</span><br><span>9</span><br><span>10</span><br><span>11</span><br><span>12</span><br><span>13</span><br><span>14</span><br><span>15</span><br><span>16</span><br><span>17</span><br><span>18</span><br><span>19</span><br><span>20</span><br><span>21</span><br></pre>
+              </td>
+              <td class="code">
+                <pre class="code-highlight language-javascript javascript"><code class="javascript">// object mutable
+const originalObject = {
+  fruit: &#39;apple&#39;,
+  price: 20
+};
+// 要客製化複製物件方法一
+const copyObject = Object.assign({}, originalObject, {fruit: &#39;orange&#39;});
+// 要客製化複製物件方法二
+const copyObject2 = Object.assign({}, originalObject);
+copyObject2.fruit = &#39;orange&#39;;
+console.log(&#39;originalObject:&#39;, originalObject);
+console.log(&#39;copyObject:&#39;, copyObject);
+console.log(&#39;copyObject2:&#39;, copyObject2);
+console.log(&#39;originalObject is equal copyObject:&#39;, copyObject === originalObject);
+console.log(&#39;originalObject is equal copyObject2:&#39;, copyObject2 === originalObject);
+
+&gt; &#34;originalObject:&#34; Object { fruit: &#34;apple&#34;, price: 20 }
+&gt; &#34;copyObject:&#34; Object { fruit: &#34;orange&#34;, price: 20 }
+&gt; &#34;copyObject2:&#34; Object { fruit: &#34;orange&#34;, price: 20 }
+&gt; &#34;originalObject is equal copyObject:&#34; false
+&gt; &#34;originalObject is equal copyObject2:&#34; false</code></pre>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </figure>
+    
+  </div>
+</figure>
+
+你以為就此就幸福快樂？是否太天真了？</p>
+<h1 id="深拷貝與淺拷貝">深拷貝與淺拷貝</h1>
+<p>終於講到為什麼要紀錄這篇文章技術債了，鋪陳了好大一段，我在做專案時，有個功能是複製商品，我將商品 A clone(克隆)一份，形成商品 B，然而我修改商品 B object 內的第二層時，神奇的事情竟然發生，<code>修改商品 B 會改到商品 A，兩者會連動</code>，我沒施魔法，也沒撞鬼，鐵定是哪裡出問題，魔鬼藏在細節裡，因為 Object.assign 是淺拷貝 (shallow-copy)。<br>
+<div class="alert info ">
+  <p>shallow-copy：只完成 Object 第一層的淺層複製，第二層還是連動原物件第二層。<br>
+簡單說第一層 pass by value，第二層 pass by reference。<br>
+因此，改了商品 B 第二層，因其記憶體位址相同，會連動影響商品 A。</p>
+</div></p>
+<p>還是看個範例好了&hellip;<br>
+<!-- raw HTML omitted --></p>
+
+
+  
+  
+  
+  
+  
+
+
+  
+    
+  
+  
+
+<figure class="codeblock codeblock--tabbed">
+  <figcaption>
+    
+      <span>object-example.js</span>
+    
+    <ul class="tabs">
+      
+        <li class="tab active">javascript</li>
+      
+    </ul>
+  </figcaption>
+  <div class="tabs-content">
+    
+      
+      <figure class="highlight language-javascript javascript" style="display: block;">
+        <table>
+          <tbody>
+            <tr>
+              <td class="gutter">
+                <pre><span>1</span><br><span>2</span><br><span>3</span><br><span>4</span><br><span>5</span><br><span>6</span><br><span>7</span><br><span>8</span><br><span>9</span><br><span>10</span><br><span>11</span><br><span>12</span><br><span>13</span><br><span>14</span><br><span>15</span><br><span>16</span><br><span>17</span><br><span>18</span><br></pre>
+              </td>
+              <td class="code">
+                <pre class="code-highlight language-javascript javascript"><code class="javascript">// shallow copy
+const originalObject = {
+  fruit: &#39;apple&#39;,
+  country: {
+    city: &#39;keelung&#39;,
+  },
+};
+
+const copyObject = Object.assign({}, originalObject);
+copyObject.fruit = &#39;banana&#39;;
+copyObject.country.city = &#39;taipei&#39;;
+console.log(&#39;originalObject:&#39;, originalObject);
+console.log(&#39;copyObject:&#39;, copyObject);
+console.log(&#39;originalObject is equal copyObject:&#39;, copyObject === originalObject);
+// outcome
+&gt; &#34;originalObject:&#34; Object { fruit: &#34;apple&#34;, country: Object { city: &#34;taipei&#34; } }
+&gt; &#34;copyObject:&#34; Object { fruit: &#34;banana&#34;, country: Object { city: &#34;taipei&#34; } }
+&gt; &#34;originalObject is equal copyObject:&#34; false</code></pre>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </figure>
+    
+  </div>
+</figure>
+
+<p>可以看到修改 <code>copyObject</code> 第一層不會影響 <code>originalObject</code> 的第一層。<br>
+但修改第二層 <code>copyObject</code> 第二層就會影響 <code>originalObject</code> 的第二層，真的靠北！<br>
+現在我知道是淺拷貝 (shallow-copy)，所以我想要深度拷貝，商品 B 跟商品 A 就可以徹徹底底分開，我們從此不再有關聯！有淺就有深，呼叫深拷貝。<br>
+<!-- raw HTML omitted --></p>
+<div class="alert info ">
+  <p>deep-copy：深度複製 Object，複製出的元件變動不會影響原物件。
+因此，改了商品 B 第二層/第 N 層，因其<code>記憶體位址不相同</code>，不會連動影響商品 A。</p>
+</div>
+<p>最後的範例了！<br>
+<!-- raw HTML omitted --></p>
+
+
+  
+  
+  
+  
+  
+
+
+  
+    
+  
+  
+
+<figure class="codeblock codeblock--tabbed">
+  <figcaption>
+    
+      <span>object-example.js</span>
+    
+    <ul class="tabs">
+      
+        <li class="tab active">javascript</li>
+      
+    </ul>
+  </figcaption>
+  <div class="tabs-content">
+    
+      
+      <figure class="highlight language-javascript javascript" style="display: block;">
         <table>
           <tbody>
             <tr>
@@ -543,23 +685,23 @@ MySQL 會遞迴執行這些子查詢，放在臨時表中</p>
                 <pre><span>1</span><br><span>2</span><br><span>3</span><br><span>4</span><br><span>5</span><br><span>6</span><br><span>7</span><br><span>8</span><br><span>9</span><br><span>10</span><br><span>11</span><br><span>12</span><br><span>13</span><br><span>14</span><br><span>15</span><br><span>16</span><br><span>17</span><br></pre>
               </td>
               <td class="code">
-                <pre class="code-highlight language-sql sql"><code class="sql">    explain SELECT
-        *
-    FROM
-        (
-        SELECT
-            id
-        FROM
-            `event`
-        UNION
-        SELECT
-            id
-        FROM
-            faq
-        ) AS union_table
-    WHERE
-        union_table.id = 3
-    </code></pre>
+                <pre class="code-highlight language-javascript javascript"><code class="javascript">// deep copy
+const originalObject = {
+  fruit: &#39;apple&#39;,
+  country: {
+    city: &#39;keelung&#39;,
+  },
+};
+const copyObject = JSON.parse(JSON.stringify(originalObject));
+copyObject.fruit = &#39;banana&#39;;
+copyObject.country.city = &#39;taipei&#39;;
+console.log(&#39;originalObject:&#39;, originalObject);
+console.log(&#39;copyObject:&#39;, copyObject);
+console.log(&#39;originalObject is equal copyObject:&#39;, copyObject === originalObject);
+
+&gt; &#34;originalObject:&#34; Object { fruit: &#34;apple&#34;, country: Object { city: &#34;keelung&#34; } }
+&gt; &#34;copyObject:&#34; Object { fruit: &#34;banana&#34;, country: Object { city: &#34;taipei&#34; } }
+&gt; &#34;originalObject is equal copyObject:&#34; false</code></pre>
               </td>
             </tr>
           </tbody>
@@ -568,27 +710,20 @@ MySQL 會遞迴執行這些子查詢，放在臨時表中</p>
     
   </div>
 </figure>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="table">table</h2>
-<p>table: 就表示查詢哪張表，非常直觀XD</p>
+
+<p>可以看到 <code>originalObject</code> 複製一個雙胞胎 <code>copyObject</code>，使用了 <code>JSON.parse(JSON.stringify(originalObject))</code>，先轉字串再轉回 JSON。<br>
+無論我修改第一層或第二層，不會連動影響，你就是你，我就是我，切得一乾二凈。</p>
 <h1 id="學習重點">學習重點</h1>
-<p>剛開始想說一次到位，把所有的 <code>explain</code> 的意義一次寫完，但後來想想按照自己學習的節奏好了！
-我會把他切成三個部分</p>
-<ol>
-<li>select_type</li>
-<li>type</li>
-<li>優化與技巧</li>
-</ol>
+<p>這次的學習紀錄，起心動念於我卡住一個 bug 一個小時，想說我眼花，A 複製一個 B，雙胞胎 B 改變了資料結構，
+A 也跟著改，是怎樣逆！很叛逆，但其實是我沒搞清楚 JS！</p>
 <blockquote>
-<p>學習勿操之過急，慢慢來比較快</p>
+<p>當踩到坑時，你必須由淺入深一層一層剝開自己的心，才有辦法接納 JS 奇妙的存在，就像這次拷貝事件一樣</p>
 </blockquote>
 <h1 id="參考連結">參考連結</h1>
 <ul>
-<li><a href="https://castion2293.medium.com/%E9%80%8F%E9%81%8Eexplain%E5%88%86%E6%9E%90%E6%95%88%E8%83%BD-dad14f16ae7e">透過索引優化來提高SQL效能</a></li>
-<li><a href="https://database.51cto.com/art/202008/624772.htm">explain都不會用，你好意思說精通MySQL查詢優化？</a></li>
+<li><a href="https://www.samanthaming.com/tidbits/70-3-ways-to-clone-objects/">3 Ways to Clone Objects in JavaScript</a></li>
+<li><a href="https://awdr74100.github.io/2019-10-24-javascript-deepcopy/">JavaScript 淺拷貝 (Shallow Copy) 與深拷貝 (Deep Copy)</a></li>
+<li><a href="https://ithelp.ithome.com.tw/articles/10193474">Javascript Mutable 跟 Immutable 資料型態</a></li>
 </ul>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>
@@ -616,7 +751,7 @@ MySQL 會遞迴執行這些子查詢，放在臨時表中</p>
                   <div class="post-footer-tags">
                     <span class="text-color-light text-small">標籤</span><br/>
                     
-  <a class="tag tag--primary tag--small" href="https://jamie-life-coding.site/tags/database/">database</a>
+  <a class="tag tag--primary tag--small" href="https://jamie-life-coding.site/tags/javascript/">javascript</a>
 
                   </div>
                 
@@ -629,7 +764,7 @@ MySQL 會遞迴執行這些子查詢，放在臨時表中</p>
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://jamie-life-coding.site/2021/09/redux-lidemy-learning/" data-tooltip="Lidemy 學習 Redux 第一章 — 基本概念" aria-label="下一篇: Lidemy 學習 Redux 第一章 — 基本概念">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://jamie-life-coding.site/2021/12/laravel-artisan-run/" data-tooltip="Laravel dev setting - Artisan &amp; Composer &amp; how to run laravel locally" aria-label="下一篇: Laravel dev setting - Artisan &amp; Composer &amp; how to run laravel locally">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
@@ -637,7 +772,7 @@ MySQL 會遞迴執行這些子查詢，放在臨時表中</p>
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://jamie-life-coding.site/2021/09/database-normalization-pros-cons/" data-tooltip="正規化 or 反正規化，優缺點一次說明" aria-label="上一篇: 正規化 or 反正規化，優缺點一次說明">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://jamie-life-coding.site/2021/09/redux-lidemy-learning/" data-tooltip="Lidemy 學習 Redux 第一章 — 基本概念" aria-label="上一篇: Lidemy 學習 Redux 第一章 — 基本概念">
               
                   <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
                   <i class="fa fa-angle-right"></i>
@@ -655,19 +790,19 @@ MySQL 會遞迴執行這些子查詢，放在臨時表中</p>
         </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://jamie-life-coding.site/2021/09/how-to-improve-database-query-1/" title="分享到 %s Facebook" aria-label="分享到 %s Facebook">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://jamie-life-coding.site/2021/10/javascript-copy-object/" title="分享到 %s Facebook" aria-label="分享到 %s Facebook">
               <i class="fab fa-facebook-square" aria-hidden="true"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://jamie-life-coding.site/2021/09/how-to-improve-database-query-1/" title="分享到 %s Twitter" aria-label="分享到 %s Twitter">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://jamie-life-coding.site/2021/10/javascript-copy-object/" title="分享到 %s Twitter" aria-label="分享到 %s Twitter">
               <i class="fab fa-twitter" aria-hidden="true"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://jamie-life-coding.site/2021/09/how-to-improve-database-query-1/" title="分享到 %s Google&#43;" aria-label="分享到 %s Google&#43;">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://jamie-life-coding.site/2021/10/javascript-copy-object/" title="分享到 %s Google&#43;" aria-label="分享到 %s Google&#43;">
               <i class="fab fa-google-plus" aria-hidden="true"></i>
             </a>
           </li>
@@ -699,9 +834,9 @@ MySQL 會遞迴執行這些子查詢，放在臨時表中</p>
     <script type="text/javascript">
       var disqus_config = function() {
         this.language = 'en';
-        this.page.url = 'https:\/\/jamie-life-coding.site\/2021\/09\/how-to-improve-database-query-1\/';
+        this.page.url = 'https:\/\/jamie-life-coding.site\/2021\/10\/javascript-copy-object\/';
         
-          this.page.identifier = '\/2021\/09\/how-to-improve-database-query-1\/'
+          this.page.identifier = '\/2021\/10\/javascript-copy-object\/'
         
       };
       (function() {
@@ -741,7 +876,7 @@ MySQL 會遞迴執行這些子查詢，放在臨時表中</p>
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://jamie-life-coding.site/2021/09/redux-lidemy-learning/" data-tooltip="Lidemy 學習 Redux 第一章 — 基本概念" aria-label="下一篇: Lidemy 學習 Redux 第一章 — 基本概念">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://jamie-life-coding.site/2021/12/laravel-artisan-run/" data-tooltip="Laravel dev setting - Artisan &amp; Composer &amp; how to run laravel locally" aria-label="下一篇: Laravel dev setting - Artisan &amp; Composer &amp; how to run laravel locally">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
@@ -749,7 +884,7 @@ MySQL 會遞迴執行這些子查詢，放在臨時表中</p>
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://jamie-life-coding.site/2021/09/database-normalization-pros-cons/" data-tooltip="正規化 or 反正規化，優缺點一次說明" aria-label="上一篇: 正規化 or 反正規化，優缺點一次說明">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://jamie-life-coding.site/2021/09/redux-lidemy-learning/" data-tooltip="Lidemy 學習 Redux 第一章 — 基本概念" aria-label="上一篇: Lidemy 學習 Redux 第一章 — 基本概念">
               
                   <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
                   <i class="fa fa-angle-right"></i>
@@ -767,19 +902,19 @@ MySQL 會遞迴執行這些子查詢，放在臨時表中</p>
         </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://jamie-life-coding.site/2021/09/how-to-improve-database-query-1/" title="分享到 %s Facebook" aria-label="分享到 %s Facebook">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://jamie-life-coding.site/2021/10/javascript-copy-object/" title="分享到 %s Facebook" aria-label="分享到 %s Facebook">
               <i class="fab fa-facebook-square" aria-hidden="true"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://jamie-life-coding.site/2021/09/how-to-improve-database-query-1/" title="分享到 %s Twitter" aria-label="分享到 %s Twitter">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://jamie-life-coding.site/2021/10/javascript-copy-object/" title="分享到 %s Twitter" aria-label="分享到 %s Twitter">
               <i class="fab fa-twitter" aria-hidden="true"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://jamie-life-coding.site/2021/09/how-to-improve-database-query-1/" title="分享到 %s Google&#43;" aria-label="分享到 %s Google&#43;">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://jamie-life-coding.site/2021/10/javascript-copy-object/" title="分享到 %s Google&#43;" aria-label="分享到 %s Google&#43;">
               <i class="fab fa-google-plus" aria-hidden="true"></i>
             </a>
           </li>
@@ -810,19 +945,19 @@ MySQL 會遞迴執行這些子查詢，放在臨時表中</p>
   <ul class="share-options">
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fjamie-life-coding.site%2F2021%2F09%2Fhow-to-improve-database-query-1%2F" aria-label="分享到 %s Facebook">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fjamie-life-coding.site%2F2021%2F10%2Fjavascript-copy-object%2F" aria-label="分享到 %s Facebook">
           <i class="fab fa-facebook-square" aria-hidden="true"></i><span>分享到 Facebook</span>
         </a>
       </li>
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fjamie-life-coding.site%2F2021%2F09%2Fhow-to-improve-database-query-1%2F" aria-label="分享到 %s Twitter">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fjamie-life-coding.site%2F2021%2F10%2Fjavascript-copy-object%2F" aria-label="分享到 %s Twitter">
           <i class="fab fa-twitter" aria-hidden="true"></i><span>分享到 Twitter</span>
         </a>
       </li>
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Fjamie-life-coding.site%2F2021%2F09%2Fhow-to-improve-database-query-1%2F" aria-label="分享到 %s Google&#43;">
+        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Fjamie-life-coding.site%2F2021%2F10%2Fjavascript-copy-object%2F" aria-label="分享到 %s Google&#43;">
           <i class="fab fa-google-plus" aria-hidden="true"></i><span>分享到 Google&#43;</span>
         </a>
       </li>

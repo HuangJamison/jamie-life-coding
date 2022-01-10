@@ -6,7 +6,7 @@ description: "紀錄 DNS 與買網域設定的雷點與歷程，網域名稱系�
 slug: "dns-setting"
 draft: false
 categories:
-- hugo
+- blog-setting
 tags:
 - DNS
 keywords:

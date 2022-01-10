@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>laravel on Life coding, record life.</title>
+    <link>https://jamie-life-coding.site/categories/laravel/</link>
+    <description>Recent content in laravel on Life coding, record life.</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 13 Dec 2021 00:15:01 +0800</lastBuildDate><atom:link href="https://jamie-life-coding.site/categories/laravel/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Laravel dev setting - Artisan &amp; Composer &amp; how to run laravel locally</title>
+      <link>https://jamie-life-coding.site/2021/12/laravel-artisan-run/</link>
+      <pubDate>Mon, 13 Dec 2021 00:15:01 +0800</pubDate>
+      
+      <guid>https://jamie-life-coding.site/2021/12/laravel-artisan-run/</guid>
+      <description>&lt;p&gt;優美的框架？ Laravel 學習之路！&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
