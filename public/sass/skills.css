@@ -1,0 +1,67 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat");
+#skills-container {
+  margin: 3vh 0;
+  /*skill circle*/ }
+  #skills-container .bar-block {
+    margin-top: 2vh;
+    margin-bottom: 3vh;
+    display: flex; }
+    #skills-container .bar-block .bar-title {
+      padding: 2vh 4vw 0 2vw;
+      width: 35vw;
+      font-size: 2.3vw; }
+    #skills-container .bar-block .bar-frame {
+      border: solid 0.3vw #17b8b5;
+      width: 40vw;
+      height: 7vh;
+      margin: 0vh 0 0vh 1vw;
+      position: relative;
+      border-radius: 0.3vw; }
+      @media (max-width: 576px) {
+        #skills-container .bar-block .bar-frame {
+          height: 5vh; } }
+      #skills-container .bar-block .bar-frame .bar-content {
+        position: absolute;
+        background-color: #17b8b5;
+        box-shadow: 0 0 0 #17b8b5;
+        color: black;
+        text-align: left;
+        height: 7.5vh;
+        left: -0.3vw;
+        top: -0.3vh; }
+        @media (max-width: 576px) {
+          #skills-container .bar-block .bar-frame .bar-content {
+            height: 5.2vh;
+            top: -0.1vh; } }
+      #skills-container .bar-block .bar-frame .git {
+        width: 80%; }
+      #skills-container .bar-block .bar-frame .laravel {
+        width: 70%; }
+      #skills-container .bar-block .bar-frame .codeigniter {
+        width: 90%; }
+      #skills-container .bar-block .bar-frame .sql {
+        width: 80%; }
+      #skills-container .bar-block .bar-frame .javascript {
+        width: 80%; }
+      #skills-container .bar-block .bar-frame .react {
+        width: 85%; }
+      #skills-container .bar-block .bar-frame .python {
+        width: 65%; }
+  #skills-container .skill-circle-block {
+    margin: 2vh 0 0 8vw; }
+    #skills-container .skill-circle-block .skill-circle {
+      width: 15vw;
+      height: 15vw;
+      font-size: 1vw;
+      padding: 4vw;
+      position: relative; }
+      @media (max-width: 576px) {
+        #skills-container .skill-circle-block .skill-circle {
+          margin: 6vh 30vw;
+          width: 25vw;
+          height: 25vw; } }
+      @media (max-width: 992px) {
+        #skills-container .skill-circle-block .skill-circle {
+          margin: 6vh 30vw;
+          width: 25vw;
+          height: 25vw; } }

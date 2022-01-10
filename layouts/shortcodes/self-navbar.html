@@ -1,0 +1,19 @@
+{{ $sass := resources.Get "sass/self-nav-bar.scss" }}
+{{ $style := $sass | resources.ToCSS }}
+<link rel="stylesheet" href="{{ $style.Permalink }}" />
+<nav id="self-navbar">
+    <ul>
+      <li id="nav-self-infro">
+        <a href="{{ .Site.BaseURL }}/profile/about-me">Jamie</a>
+      </li>
+      <li id="nav-skills">
+        <a href="{{ .Site.BaseURL }}/profile/skills">Skills</a>
+      </li>
+      <li id="nav-portfolio">
+        <a href="{{ .Site.BaseURL }}/profile/portfolio">Portfolio</a>
+      </li>
+      <li id="nav-timeline">
+        <a href="{{ .Site.BaseURL }}/profile/timeline">Timeline</a>
+      </li>
+    </ul>
+</nav>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Keelung-englishes on Life coding, record life.</title>
+    <link>https://jamie-life-coding.site/keelung-english/</link>
+    <description>Recent content in Keelung-englishes on Life coding, record life.</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="https://jamie-life-coding.site/keelung-english/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>基隆英文口說團</title>
+      <link>https://jamie-life-coding.site/keelung-english/introduction/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://jamie-life-coding.site/keelung-english/introduction/</guid>
+      <description>讀書會目前還有名額，詳情請看
+基隆英文口說團報名表單
+Meetup topics | Meetup activities
+Introduction  Introduction Who are we？ What are we doing in meetup？ Meetup topics Application and time Meetup activities photos Website maintenance Log  Who are we？         Guess who are we from pokemon     We are a group which gathers friends for practicing english. Language is an important tool for communicating and friend-making.</description>
+    </item>
+    
+    <item>
+      <title>基隆英文口說團</title>
+      <link>https://jamie-life-coding.site/keelung-english/meetup-activities/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://jamie-life-coding.site/keelung-english/meetup-activities/</guid>
+      <description>Meetup introduction | Meetup topics
+基隆英文口說團報名表單
+Here are some photos to record gathering, we can&amp;rsquo;t remember specific time. Just use our poor memory to categorize them.
+photos  photos 2021 Summer 2021 Autumn 2021 Winter  2021 Summer 2021 Autumn 2021 Winter   $(document).ready(function() { setInterval(() = { $.each($(&#39;#disqus_thread iframe&#39;), function (arr, element) { if (!$(element).attr(&#39;src&#39;)) { $(element).hide(); } }); }, 5000); });  </description>
+    </item>
+    
+    <item>
+      <title>基隆英文口說團</title>
+      <link>https://jamie-life-coding.site/keelung-english/meetup-topics/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://jamie-life-coding.site/keelung-english/meetup-topics/</guid>
+      <description>Meetup introduction | Meetup activities
+基隆英文口說團報名表單
+We have a lot of topics, but some files could not be accessed now.
+We start to arrange our meetup topics from 2021/09/19.
+Topics  Topics 2021 Summer 2021 Autumn 2021 Winter  2021 Summer         meetup     Monopoly  Host : Jamie &amp;amp; Sessions Time : 4/23 File : Monopoly    2021 Autumn         meetup     How do you measure risk ?</description>
+    </item>
+    
+  </channel>
+</rss>

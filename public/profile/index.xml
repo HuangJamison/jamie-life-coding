@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Profiles on Life coding, record life.</title>
+    <link>https://jamie-life-coding.site/profile/</link>
+    <description>Recent content in Profiles on Life coding, record life.</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="https://jamie-life-coding.site/profile/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Jamie Huang&#39;s Profile</title>
+      <link>https://jamie-life-coding.site/profile/about-me/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://jamie-life-coding.site/profile/about-me/</guid>
+      <description>  Jamie  Skills  Portfolio  Timeline    關於我 工業工程研究所畢業後，進入面板廠工作後，在辦公室導入 Excel VBA 後，嘗試轉換職涯跑道，目前擔任軟體工程師，紀錄自己開發與學習上的心得，想利用程式的魔法讓 Metaverse 中留下我的足跡。
+聯絡方式 Email: b10130402@gmail.com 歡迎寫信或利用側邊欄資訊與我聯絡討論技術或生活。
+為何寫程式 在工廠內導入專案成效至少要等半年以上，但寫程式可以在短時間內將自己的想法實現，短時間內增加自己成就感與看到實作後結果，這是我覺得程式迷人的地方。
+一頁式履歷 這是我的履歷表，點我看更多，純手工的 HTML &amp;amp; CSS，後續想改成 React，比較好維護，但苦於沒時間 T^T
+近期正在學習 2021/10 月開始接觸 Laravel，與同事開始做 side project，學習用 ORM 方式開發 RESTful API，學習不同 Design pattern，增加程式複用性。
+  $(document).ready(function() { setInterval(() = { $.each($(&#39;#disqus_thread iframe&#39;), function (arr, element) { if (!$(element).attr(&#39;src&#39;)) { $(element).hide(); } }); }, 5000); });  </description>
+    </item>
+    
+    <item>
+      <title>Jamie Huang&#39;s Profile</title>
+      <link>https://jamie-life-coding.site/profile/skills/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://jamie-life-coding.site/profile/skills/</guid>
+      <description>  Jamie  Skills  Portfolio  Timeline    技能配點  以下皆為自評，主觀感受
+  Git 80    PHP(Lavavel) 70    PHP(Codeigniter) 90    SQL 80    Javascript 80    React 85    Python(Django) 65       $(document).ready(function() { setInterval(() = { $.each($(&#39;#disqus_thread iframe&#39;), function (arr, element) { if (!$(element).attr(&#39;src&#39;)) { $(element).hide(); } }); }, 5000); });  </description>
+    </item>
+    
+    <item>
+      <title>Jamie Huang&#39;s Profile</title>
+      <link>https://jamie-life-coding.site/profile/timeline/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://jamie-life-coding.site/profile/timeline/</guid>
+      <description>Jamie  Skills  Portfolio  Timeline    Web 自我學習紀錄  2022.01 參與 2B 廠商草稿合約前後端實作，應用 React UseForm，並導入 Validation 2021.12 個人 Side Project Moving Company 修改與調整，Hugo 新增關於站長/說說英文讀書會頁面 2021.11 設計 2B 端廠商提報草稿合約重構，資料庫 Migrate 2021.10 架設 Hugo Blog 處理 Domain, Deploy 一些細節完成上線 2021.09 盤整公司內部合約草稿架構，提出重構 2021.08 負責雙平台跨站財務報表設計與實作 2021.07 個人 Side Project Moving Company 練習使用 Style Component 2021.06 負責整合內部物流串接全家/7-11，報表, 物流資料流調整 2021.05 參與 Scrum Team OPFT 負責營運系統開發 2021.04 完成通知中心並上線 2021.01 接觸 Micro Service，參與兩平台通知中心專案建置，後端 PHP &amp;amp; Node.</description>
+    </item>
+    
+    <item>
+      <title>Jamie Huang&#39;s Resume</title>
+      <link>https://jamie-life-coding.site/profile/portfolio/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://jamie-life-coding.site/profile/portfolio/</guid>
+      <description>  Jamie  Skills  Portfolio  Timeline    簡易作品集 後端作品網站  Python Django Website 求職平台看板 求職天眼通留言系統 每日記帳 Roll-your-money  前端作品網站  反應力遊戲 計算機 Twitch API 實況串接 My Resume 力大搬家公司 React(styled component)    $(document).ready(function() { setInterval(() = { $.each($(&#39;#disqus_thread iframe&#39;), function (arr, element) { if (!$(element).attr(&#39;src&#39;)) { $(element).hide(); } }); }, 5000); });  </description>
+    </item>
+    
+  </channel>
+</rss>

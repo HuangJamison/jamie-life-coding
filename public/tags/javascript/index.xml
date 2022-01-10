@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>javascript on Life coding, record life.</title>
+    <link>https://jamie-life-coding.site/tags/javascript/</link>
+    <description>Recent content in javascript on Life coding, record life.</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 16 Oct 2021 01:35:01 +0800</lastBuildDate><atom:link href="https://jamie-life-coding.site/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Javascript 讓你困惑的事 - copy object</title>
+      <link>https://jamie-life-coding.site/2021/10/javascript-copy-object/</link>
+      <pubDate>Sat, 16 Oct 2021 01:35:01 +0800</pubDate>
+      
+      <guid>https://jamie-life-coding.site/2021/10/javascript-copy-object/</guid>
+      <description>&lt;p&gt;痛過才記得 JS 讓我困惑的地方，踩雷紀錄，弄不清楚拷貝讓你覺得靠北&amp;hellip;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

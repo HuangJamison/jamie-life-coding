@@ -98,4 +98,8 @@
     border-radius: 15px;
     margin-bottom: 10px;
   }
+  .post-header-cover[data-behavior="1"] {
+    width: calc(100% - 500px);
+    left: 600px;
+  }
 }

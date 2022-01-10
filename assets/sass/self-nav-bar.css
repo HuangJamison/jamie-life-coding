@@ -1,0 +1,97 @@
+#self-navbar {
+  font-family: arial, sans-serif;
+  color: white;
+  text-align: center;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  /* This is the bounce animation */
+}
+
+#self-navbar ul li a, #self-navbar ul li a:hover, #self-navbar ul li a:visited, #self-navbar ul li a:active {
+  color: inherit;
+  text-decoration: none;
+}
+
+#self-navbar ul {
+  list-style: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 6vh;
+  line-height: 6vh;
+}
+
+#self-navbar ul li {
+  padding: 10px 15px;
+  background-color: #d75498;
+  height: 100%;
+  cursor: pointer;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+
+#self-navbar ul li:hover {
+  background-color: #2a8dc2;
+  text-decoration: none;
+  height: 105%;
+  font-weight: bold;
+  -webkit-animation: bounce 1s ease-in-out;
+          animation: bounce 1s ease-in-out;
+}
+
+@-webkit-keyframes bounce {
+  0% {
+    height: 100%;
+  }
+  20% {
+    height: 180%;
+  }
+  40% {
+    height: 110%;
+  }
+  60% {
+    height: 160%;
+  }
+  80% {
+    height: 120%;
+  }
+  90% {
+    height: 135%;
+  }
+  100% {
+    height: 130%;
+  }
+}
+
+@keyframes bounce {
+  0% {
+    height: 100%;
+  }
+  20% {
+    height: 180%;
+  }
+  40% {
+    height: 110%;
+  }
+  60% {
+    height: 160%;
+  }
+  80% {
+    height: 120%;
+  }
+  90% {
+    height: 135%;
+  }
+  100% {
+    height: 130%;
+  }
+}
+/*# sourceMappingURL=self-nav-bar.css.map */

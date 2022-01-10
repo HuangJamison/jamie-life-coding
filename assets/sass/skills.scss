@@ -1,0 +1,129 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat");
+// color
+$bar-border: rgb(23, 184, 181);
+$bar-inside: rgb(23, 184, 181);
+$bar-wording: black;
+// Small tablets and large smartphones (landscape view)
+$screen-sm-min: 576px;
+// Small tablets (portrait view)
+$screen-md-min: 768px;
+// Tablets and small desktops
+$screen-lg-min: 992px;
+// Large tablets and desktops
+$screen-xl-min: 1600px;
+// mixin
+@mixin size($w, $h) {
+  width: $w;
+  height: $h;
+}
+@mixin clear {
+  opacity: 0;
+}
+@mixin unclear {
+  opacity: 1;
+}
+@mixin sm {
+  @media (max-width: #{$screen-sm-min}) {
+      @content;
+  }
+}
+// Medium devices
+@mixin md {
+  @media (max-width: #{$screen-md-min}) {
+      @content;
+  }
+}
+// Large devices
+@mixin lg {
+  @media (max-width: #{$screen-lg-min}) {
+      @content;
+  }
+}
+// Extra large devices
+@mixin xl {
+  @media (max-width: #{$screen-xl-min}) {
+      @content;
+  }
+}
+// css
+#skills-container {
+    margin: 3vh 0;
+  .bar-block {
+    margin-top: 2vh;
+    margin-bottom: 3vh;
+    display: flex;
+    .bar-title {
+      padding: 2vh 4vw 0 2vw;
+      width: 35vw;
+      font-size: 2.3vw;
+    }
+    .bar-frame {
+      @include sm {
+        height: 5vh;
+      }
+      border: solid 0.3vw $bar-border;
+      width: 40vw;
+      height: 7vh;
+      margin: 0vh 0 0vh 1vw;
+      position: relative;
+      border-radius: 0.3vw;
+      & .bar-content {
+        position: absolute;
+        background-color: $bar-inside;
+        box-shadow: 0 0 0 $bar-inside;
+        color: $bar-wording;
+        text-align: left;
+        height: 7.5vh;
+        @include sm {
+          height: 5.2vh;
+          top: -0.1vh;
+        }
+        left: -0.3vw;
+        top: -0.3vh;
+      }
+      & .git {
+        width: 80%;
+      }
+      & .laravel {
+        width: 70%;
+      }
+      & .codeigniter {
+        width: 90%;
+      }
+      & .sql {
+        width: 80%;
+      }
+      & .javascript {
+        width: 80%;
+      }
+      & .react {
+        width: 85%;
+      }
+      & .python {
+        width: 65%;
+      }
+    }
+  }
+  /*skill circle*/
+  .skill-circle-block {
+    margin: 2vh 0 0 8vw;
+    .skill-circle {
+      @include sm {
+        margin: 6vh 30vw;
+        width: 25vw;
+        height: 25vw;
+      }
+      @include lg {
+        margin: 6vh 30vw;
+        width: 25vw;
+        height: 25vw;
+      }
+      width: 15vw;
+      height: 15vw;
+      font-size: 1vw;
+      padding: 4vw; 
+      position: relative;
+    }
+  }
+}
+

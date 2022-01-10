@@ -5,7 +5,7 @@ description: ""
 slug: "medium-to-hugo"
 draft: true
 categories:
-- hugo
+- blog-setting
 tags:
 - hugo
 keywords:

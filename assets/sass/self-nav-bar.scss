@@ -1,0 +1,59 @@
+$text-color: white;
+#self-navbar {
+    font-family: arial, sans-serif;
+    color: $text-color;
+    text-align: center;
+    position: relative;
+    display: flex;
+    align-items:center;
+    justify-content:center;
+    ul li a, ul li a:hover, ul li a:visited, ul li a:active {
+      color: inherit;
+      text-decoration: none;
+     }
+    ul {
+      list-style:none;
+      display:flex;
+      height: 6vh;
+      line-height: 6vh;
+    }
+    ul li{
+      padding: 10px 15px;
+      background-color: #d75498;
+      height: 100%;
+      cursor:pointer;
+      transition: all 0.2s;
+    }
+    ul li:hover{
+      background-color: #2a8dc2;
+      text-decoration: none;
+      height: 105%;
+      font-weight: bold;
+      animation: bounce 1s ease-in-out;
+    }
+    /* This is the bounce animation */
+    @keyframes bounce{
+      0%{
+        height:100%;
+      }
+      20%{
+        height: 180%;
+      }
+      40%{
+        height: 110%;
+      }
+      60%{
+        height: 160%;
+      }
+      80%{
+        height:120%
+      }
+      90%{
+        height: 135%;
+      }
+      100%{
+        height:130%;
+      }
+    }
+  }
+  

@@ -6,7 +6,25 @@
     <description>Recent content in Posts on Life coding, record life.</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 22 Sep 2021 01:00:01 +0800</lastBuildDate><atom:link href="https://jamie-life-coding.site/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 13 Dec 2021 00:15:01 +0800</lastBuildDate><atom:link href="https://jamie-life-coding.site/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Laravel dev setting - Artisan &amp; Composer &amp; how to run laravel locally</title>
+      <link>https://jamie-life-coding.site/2021/12/laravel-artisan-run/</link>
+      <pubDate>Mon, 13 Dec 2021 00:15:01 +0800</pubDate>
+      
+      <guid>https://jamie-life-coding.site/2021/12/laravel-artisan-run/</guid>
+      <description>&lt;p&gt;優美的框架？ Laravel 學習之路！&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Javascript 讓你困惑的事 - copy object</title>
+      <link>https://jamie-life-coding.site/2021/10/javascript-copy-object/</link>
+      <pubDate>Sat, 16 Oct 2021 01:35:01 +0800</pubDate>
+      
+      <guid>https://jamie-life-coding.site/2021/10/javascript-copy-object/</guid>
+      <description>&lt;p&gt;痛過才記得 JS 讓我困惑的地方，踩雷紀錄，弄不清楚拷貝讓你覺得靠北&amp;hellip;&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>Lidemy 學習 Redux 第一章 — 基本概念</title>
       <link>https://jamie-life-coding.site/2021/09/redux-lidemy-learning/</link>

@@ -1,0 +1,54 @@
+{{ $sass := resources.Get "sass/skills.scss" }}
+{{ $style := $sass | resources.ToCSS }}
+<link rel="stylesheet" href="{{ $style.Permalink }}" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdn.rawgit.com/kimmobrunfeldt/progressbar.js/master/dist/progressbar.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<div id="skills-container">
+  <div class="bar-block">
+    <div class="bar-title">Git</div>
+    <div class="bar-frame">
+      <div class="bar-content git"></div>
+    </div>
+  </div>
+  <div class="bar-block">
+    <div class="bar-title">PHP(Lavavel)</div>
+    <div class="bar-frame">
+      <div class="bar-content laravel"></div>
+    </div>
+  </div>
+  <div class="bar-block">
+    <div class="bar-title">PHP(Codeigniter)</div>
+    <div class="bar-frame">
+      <div class="bar-content codeigniter"></div>
+    </div>
+  </div>
+  <div class="bar-block">
+    <div class="bar-title">SQL</div>
+    <div class="bar-frame">
+      <div class="bar-content sql"></div>
+    </div>
+  </div>
+  <div class="bar-block">
+    <div class="bar-title">Javascript</div>
+    <div class="bar-frame">
+      <div class="bar-content javascript"></div>
+    </div>
+  </div>
+  <div class="bar-block">
+    <div class="bar-title">React</div>
+    <div class="bar-frame">
+      <div class="bar-content react"></div>
+    </div>
+  </div>
+  <div class="bar-block">
+    <div class="bar-title">Python(Django)</div>
+    <div class="bar-frame">
+      <div class="bar-content python"></div>
+    </div>
+  </div>
+</div>
+
+{{ $skillsJS := resources.Get "js/skills.js" | js.Build "skills.js" | minify | fingerprint }}
+<script src="{{ $skillsJS.Permalink }}"></script>
