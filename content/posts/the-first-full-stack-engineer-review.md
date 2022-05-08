@@ -1,7 +1,7 @@
 ---
 title: "轉職電商全端工程師兩年多心得"
 date: 2022-04-28T10:20:01+08:00
-description: "web developer, resign the job, career plan, e-commerce"
+description: "web developer, career plan, e-commerce, resign the job"
 slug: "the-first-full-stack-engineer-review"
 draft: false
 categories:
@@ -44,8 +44,8 @@ comments: true
    | [![commandline](/images/command.png) ](/images/command.png)| 
    |:--:|
    | *把命令提示字元改成漂亮的iterm2* |  
-
-   明明有好好的 GUI，幹嘛用黑色的視窗打指令裝 B！ 其實不是，有時候在虛擬主機上沒有 GUI，只能使用 Command line 去操作主機。
+  
+   明明有好好的 GUI，幹嘛用黑色的視窗打指令裝 B！ 其實不是，有時候在虛擬主機上沒有 GUI，只能使用 Command line 去操作主機。  
    但熟悉 Mac 手勢、視窗操作後，我敢確認 windows 電腦我先收起來了！ Command line 更是神奇，一些 `cd`, `mkdir` 等各自代表 GUI 的不同操作，如果你還嫌不夠，`brew install` 還有很多寶藏等著你挖掘！
 2. Git(hard-skill)
    | [![git-flow](/images/git.png) ](/images/git.png)| 
@@ -58,7 +58,7 @@ comments: true
    MVC，Model/View/Controller，不介意可以參考[這篇 Medium](https://medium.com/@jamie-huang/%E7%94%A8-django-%E5%AF%AB%E7%B6%B2%E7%AB%99-mvc-mtv-%E6%A6%82%E5%BF%B5%E7%B0%A1%E4%BB%8B-14ba48e40137)  四年前的我寫的，後端必懂的概念，這些觀念與作品在職場上是必備技能，那困難在哪邊呢？  
    難在於你要與商業邏輯去串連，與你就職的公司串連，舉例來說：購物車的 CRUD，購物車包含商品、訂單，商品包含貴司的營銷策略的組數、方案、組數等，訂單包含母訂單(購物車)、子訂單(商品為主體)、使用者、發票等，後端工程師確實有蠻大比例在處理 CRUD，但你說的 CRUD 不是我說的 CRUD，我說的 CRUD 包含公司的商業邏輯，必須了解 Database table 的關聯，才能開始寫程式。
 4. Database Schema(hard-skill)  
-   在加入公司前，對資料庫的了解就是放資料的地方，如果比喻為生活用品，我初學的認知不就是放食材的地方嗎？有什麼高深的學問...  
+   在加入公司前，對資料庫的了解就是放資料的地方，如果比喻為生活用品，資料庫就像是冰箱，後端工程師就好比是廚師，而剛加入公司的我，初學的認知不就是放食材的地方嗎？有什麼高深的學問...  
    但學問可深的，像是 Database 就分為 RDBMS 與 NoSQL，再討論更深入一點，哪種商業情境適合用？這些都是相當寶貴的知識。
    Schema 也比我想像中複雜，兩年前的我認為只是開 Table、開 Column 去紀錄我要存的資料，但當時的我只想到自己，沒想到資料庫效能與其他關聯表單使用上的問題，然而我在這段期間學會如何有效率並開對 Index(索引)，如何在程式中正確使用 Index，避免 Slow query，也學會設計 Table，如何針對需求端要紀錄的欄位開出『正確且適用』的欄位，到底該開 int 還是 string？如果確定是數字開 int 還是 tinyint 即可，畢竟是百萬、千萬筆資料，記憶體空間一累積起來是非常驚人的！
    什麼是回表？哪時候正規化？哪時候反正規化？Transaction 該如何包? 髒讀與幻讀該如何解決？  
@@ -95,7 +95,7 @@ comments: true
    加入一年後，採取 Scrum + 專案分組，我被分到後台開發與維運組，大家對於敏捷的定義與如何實作也懞懞懂懂，後續經歷 Retro 與討論後，Scrum 運作逐漸成熟，我自己認為的確有奔跑起來做開發，以下為 Scrum + 分組，個人見解：  
    A. 優點  
 
-      * 估時、Planning 幫助工程師理解下一個 Sprint 快速開發，不會在 Sprint 行進間，花大量時間開會  
+      * 估時、Planning 幫助工程師理解下一個 Sprint 快速開發，不會在 Sprint 進行期間，花大量時間開會  
       * 組員相當熟悉本身專案架構與寫作風格，開發人員較容易上手、不容易造成單點故障  
       * 主管層級易於掌控目前進度，藉由 Planning、 Retro 等會議，可以較易關心組員與遇到的困難  
 
@@ -107,7 +107,7 @@ comments: true
  
    C. 改善  
 
-      * 估時與跨組溝通，建議皆以工時溝通而非點數，且跨組溝通需前一個 Sprint 提出，由 PO 去討論是否影響下個 Sprint 排程  
+      * 估時與跨組溝通，建議皆以工時溝通而非點數，且跨組溝通需提前一個 Sprint 提出，由 PO 去討論是否影響下個 Sprint 排程  
       * 半年輪換組別，避免特定團隊只有一人，其離職造成銜接問題，並幫助工程師職涯發展  
       * 如不適合採用此方式，可討論與協調，不強硬採用 Scrum  
       * 自己認為兩個 Sprint 間可以放一個 Sprint 小跑步，讓團隊喘息，學習新技術或是修補文件
@@ -125,7 +125,7 @@ comments: true
     A3: 不用擔心！你是新手工程師，趕快趁上手期間將常見問題整理成自己的筆記，我是用 Notion 去紀錄自己常碰到的問題。至於是不是很廢，必須說他們領的薪水鐵定比你高，別害怕自己做不出貢獻，而是要去想三個月後的自己，要具備什麼樣的技術能力。  
   
 # 我欠缺什麼？
-   這兩年學習到許多技術能力，但缺少從 0 到 1 的大專案經驗與 SA 系統架構面設計的經驗，過去使用 Codeigniter 作為 PHP 開發的框架，但自己在下班時間接觸 Laravel 開發，發現更多 OO 的 Pattern，與許多 DI 的概念，我列出是缺乏的能力：  
+   這兩年學習到許多技術能力，但缺少從 0 到 1 的大專案經驗與 SA 系統架構面設計的經驗，過去使用 Codeigniter 作為 PHP 開發的框架，但自己在下班時間接觸 Laravel 開發，發現更多 OO 的 Pattern，與許多 DI 的概念，以下是列出我所缺乏的能力：  
    1. 專案需求尚未形成需求前，缺乏針對專案目的、作法提出問題的能力。
    2. 缺乏系統設計全局概念，缺乏從 0 到 1 系統架構的開發經驗。
    3. 過去我雖能獨立完成專案需求，但遇到同事專案無法提供實質上的建議。

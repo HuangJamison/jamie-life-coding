@@ -117,7 +117,7 @@ class RiakServiceProvider extends ServiceProvider
 <!-- endtab -->
 {{< /tabbed-codeblock >}}
 不要將 event listeners, routes 或其他功能 bind service provider。
-如果你的 Service Provider 註冊許多 bindings，可用 binds and singletons，去讓城市更有可讀性，在 load service provider 自動檢查這些屬性，register 相對應 bindings。
+如果你的 Service Provider 註冊許多 bindings，可用 binds and singletons，去讓程式更有可讀性，在 load service provider 自動檢查這些屬性，register 相對應 bindings。
 
 {{< alert info >}}
 boot 做什麼用的呢？ 其作為啟動所有 application service，其啟動於 all service providers are registered 才能被調用。
